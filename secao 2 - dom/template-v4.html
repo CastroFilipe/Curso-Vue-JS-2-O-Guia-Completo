@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ saudacao() }}</p>
+        <a v-bind:href="link">Clique aqui</a><!--Diretiva v-bind indica que o vue deve interpretar a propriedade href-->
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: "Hello Vue",
+            messageSaudacao: "Bom dia!",
+            link: "www.google.com"
+        },
+        methods : {
+            saudacao: function(){
+                console.log(this)//imprimir o objeto Vue no console do navegador
+                return this.messageSaudacao
+            }
+        }
+    })
+</script>
+
+</html>
