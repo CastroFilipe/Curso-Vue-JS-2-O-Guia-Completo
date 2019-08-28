@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+
+    <div id="app">
+        <p>{{ contador }}</p>
+        <button v-on:click="somar(5, $event)">+ 1</button><!--passando um parametro e o evento do mouse para a funcao-->
+        <p v-on:mousemove="atualizarXY">
+            Mouse {{x}} , {{y}}
+
+            <!--chama a funcao parar quando o mouse passa no span-->
+            <span v-on:mousemove="parar">CHAMAR A FUNCAO PARAR E PARAR O EVENTO AQUI</span>
+            <br>
+            <!--stop fará o evento mousemove parar quando o mouse passa no span-->
+            <span v-on:mousemove.stop>PARAR O EVENTO AQUI COM STOP</span>
+        </p>
+
+        <!--prevent impede que o evento de clique leve ao google-->
+        <a v-on:click.prevent href="https://www.google.com">Clique aqui(não vai pro google)</a>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador : 0,
+            x: 0,
+            y: 0
+        },
+        methods : {
+            somar: function(incremento, event){
+                console.log(event)
+                return this.contador += incremento
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            parar(event){
+                event.stopPropagation()//para o evento mousemove
+            }
+        }
+    })
+</script>
+
+</html>
