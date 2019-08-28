@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p v-once>{{ message }}</p><!--Diretiva v-once impede a renderezicação desse atributo-->
+        <p>{{ saudacao() }}</p>
+        <a v-bind:href="link">Link com v-bind</a><!--Diretiva v-bind indica que o vue deve interpretar a propriedade href-->
+        <p v-html="linkHtml"></p>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: "Hello Vue",
+            link: "https://www.google.com",//atributo que será usado pela diretiva v-bind
+            linkHtml: '<a href="https://www.google.com">v-html</a>'
+        },
+        methods : {
+            saudacao: function(){
+                this.message = "Boa noite!!!"
+                return this.message
+            }
+        }
+    })
+</script>
+
+</html>
