@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+
+    <div id="app">
+
+        <p>Use qualquer tecla</p>
+        <input type="text" v-on:keyup="exibirAlerta">
+        
+        <hr>
+
+        <p>Digite algo e pressione ENTER</p>
+        <input type="text" v-on:keyup.enter="exibirAlerta2">
+        
+        <hr>
+
+        <p>pressione ENTER+ALT</p>
+        <input type="text" v-on:keyup.enter.alt="exibirAlerta3">
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            alerta1: 'Usou uma tecla do keyboard',
+            alerta2: 'Apertou na tecla ENTER',
+            alerta3: 'Apertou ENTER + ALT'
+        },
+        methods : {
+            exibirAlerta(){
+                alert(this.alerta1)
+            },
+            exibirAlerta2(){
+                alert(this.alerta2)
+            },
+            exibirAlerta3(){
+                alert(this.alerta3)
+            }
+        }
+    })
+</script>
+
+</html>
