@@ -12,6 +12,7 @@
 <body>
 
     <div id="app">
+        <p v-once>{{ contador }}</p><!--Diretiva v-once impede a atualização do atributo após o carregamento da página-->
         <p>{{ contador }}</p>
         <button v-on:click="somar">+ 1</button><!--Diretiva v-on para eventos-->
     </div>
