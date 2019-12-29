@@ -11,11 +11,11 @@
             <!--chama a funcao parar quando o mouse passa no span-->
             <span v-on:mousemove="parar">CHAMAR A FUNCAO PARAR E PARAR O EVENTO AQUI</span>
             <br>
-            <!--stop fará o evento mousemove parar quando o mouse passa no span-->
+            <!--modificador de evento stop fará o evento mousemove parar quando o mouse passa no span-->
             <span v-on:mousemove.stop>PARAR O EVENTO AQUI COM STOP</span>
         </p>
 
-        <!--prevent impede que o evento de clique leve ao google-->
+        <!--modificarod de evento prevent impede que o evento de clique leve ao google-->
         <a v-on:click.prevent href="https://www.google.com">Clique aqui(não vai pro google)</a>
     </div>
 
