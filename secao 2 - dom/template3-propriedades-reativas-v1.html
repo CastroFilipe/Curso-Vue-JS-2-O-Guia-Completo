@@ -12,8 +12,13 @@
 <body>
 
     <div id="app">
+            
         <p>{{ titulo }}</p>
-        <input type="text" v-model="titulo"> <!--v-model possibilita o two way data binding-->
+        <input type="text" v-bind:value="titulo" 
+        v-on:input="titulo = $event.target.value"><!--uma forma de Two way binding-->
+
+        <p>{{ titulo }}</p>
+        <input type="text" v-model="titulo"> <!--outra forma v-model possibilita o two way data binding-->
     </div>
 
 </body>
