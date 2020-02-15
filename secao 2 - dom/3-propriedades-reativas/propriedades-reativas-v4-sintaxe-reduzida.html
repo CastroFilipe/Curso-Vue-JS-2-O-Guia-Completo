@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+        <!--SINTAXE NÃO REDUZIDA: utilizando v-on e v-bind.-->
+        <button v-on:click="somar"> somar + 1</button>
+        <br>
+        <input type="text" v-bind:value="contador">
+        <hr>
+
+        <!--MESMO TRECHO COM SINTAXE REDUZIDA. substitutos para v-on e v-bind -->
+        <button @click="somar"> somar + 1</button><!--@ significa v-on:-->
+        <br>
+        <input type="text" :value="contador"><!--v-model: pode ser subistituido por dois pontos-->
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            somar() {
+                this.contador++;
+            }
+        }
+    })
+</script>
+
+</html>
