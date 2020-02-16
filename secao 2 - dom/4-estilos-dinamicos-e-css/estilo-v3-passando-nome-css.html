@@ -1,0 +1,48 @@
+<script src="https://unpkg.com/vue"></script>
+<style>
+    .caixa {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+</style>
+
+<div id="app">
+    <div class="caixa">
+        <!--Atributo classeCSS1 possuí o nome'c1':: -->
+        <div class="demo" :class="classeCSS1"></div>
+        
+        <!--do mesmo modo, aplicando a classe css 'c2': -->
+        <div class="demo" :class="css2"></div>
+        <div class="demo"></div>
+    </div>
+    <hr>
+    <!--Mudando o valor do atributo-->
+    <input type="text" v-model="classeCSS1">
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            classeCSS1: 'c1',
+            css2: 'c2'
+        }
+    })
+</script>
