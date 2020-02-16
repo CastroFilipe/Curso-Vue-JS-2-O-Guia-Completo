@@ -15,8 +15,14 @@
 <div id="app">
     <div class="caixa">
         <!--Aplicando o estilo diretamente: -->
-        <div class="demo" :style="{'background-color': cor}"></div>
-        <div class="demo"></div>
+        <div class="demo" :style="{'background-color': cor}">1</div>
+        <!--Outra forma -->
+        <div class="demo" :style="{backgroundColor: cor}">2</div>
+        <!--Com propriedade computed -->
+        <div class="demo" :style="meuEstilo">3</div>
+        
+        <!-- Array de propriedades aplicadas-->
+        <div class="demo" :style="[meuEstilo, {height: altura}, {backgroundColor: 'green'}]">4</div>
     </div>
     <hr>
     <!--Mudando a cor-->
@@ -26,7 +32,18 @@
     new Vue({
         el: '#app',
         data: {
-            cor: 'orange'
+            cor: 'red',
+            cor2: 'pink',
+            largura: 200,
+            altura: 50 + 'px'
+        },
+        computed: {
+            meuEstilo() {
+                return {
+                    backgroundColor: this.cor2,
+                    width: this.largura + 'px'
+                }
+            }
         }
-    })
+    });
 </script>
