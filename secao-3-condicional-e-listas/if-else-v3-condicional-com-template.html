@@ -1,0 +1,29 @@
+<!--Exemplo de utilização da diretiva v-else-if para seleção múltipla condicional.-->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!--Pesquisar sobre a tag template do html-->
+    <template v-if="logado">
+        <div> Usuário logado: {{nome}}</div>
+        <div>Perfil: ADMIN</div>
+    </template>
+    <div v-else-if="anonimo">Navegando como usuário anônimo</div>
+    <div v-else="!logado">Usuário offline</div>
+    <br>
+
+    <button @click="logado = !logado">{{logado ? 'Sair' : 'entrar' }}</button>
+    <input id="chk1" type="checkbox" v-model="anonimo">
+    <label for="chk1"> Navegação anônima</label>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            nome: 'Filipe Castro',
+            logado: false,
+            anonimo : false
+        }
+    })
+</script>
