@@ -1,0 +1,42 @@
+<!--Iterando objetos.-->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!--Acessando o atributo através do objeto pessoa-->
+    <ul>
+        <li v-for="pessoa in pessoas">
+            {{pessoa.nome}}
+        </li>
+    </ul>
+    <br>
+    <!--Acessando todos os atributos-->
+    <ul>
+        <li v-for="pessoa in pessoas">
+            <template v-for="valor in pessoa"><!--Laço interno-->
+                {{valor}}
+            </template>
+        </li>
+    </ul>
+    <br>
+    <!--Acessando a chave(nome) e o index dos atributos-->
+    <ul>
+        <li v-for="pessoa in pessoas">
+            <template v-for="(valor, chave, i) in pessoa">
+                <p>posição do atributo: {{i}} - identificador do atributo: {{chave}} - valor : {{valor}}</p>
+            </template>
+        </li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            pessoas: [
+                {nome:"Joana Prado", idade: 29, peso: 64},
+                {nome:"Filipe Castro", idade: 27, peso: 85}
+            ]
+        }
+    })
+</script>
