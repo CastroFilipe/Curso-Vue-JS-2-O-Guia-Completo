@@ -1,0 +1,26 @@
+<!--:key ajuda o vue a identificar mudanças nos objetos do laço.-->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="pessoa in pessoas" :key="nome">
+            <template v-for="atributo in pessoa">
+                {{atributo}} ,                   
+            </template>
+        </li>
+    </ul> 
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['Vermelho', 'Verde', 'Azul', 'Amarelo'],
+            pessoas: [
+                {nome:"Joana Prado", idade: 29, peso: 64},
+                {nome:"Filipe Castro", idade: 27, peso: 85}
+            ]
+        }
+    })
+</script>
