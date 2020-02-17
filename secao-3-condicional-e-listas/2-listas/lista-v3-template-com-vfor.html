@@ -1,0 +1,37 @@
+<!--template e v-for-->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!--Para cada cor, O laço gera a div e os elementos internos a div-->
+    <div v-for="(cor, i) in cores">
+        <h1>{{cor}}</h1>
+        <p>{{i}}</p>
+    </div>
+    
+    <br>
+    <!--Para cada cor o laço gera apenas os elementos internos ao template-->
+    <template v-for="(cor, i) in cores">
+        <h1>{{cor}}</h1>
+        <p>{{i}}</p>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                { nome: 'Joana', idade: 29, peso: 65 },
+                { nome: 'Filipe', idade: 27, peso: 85 }
+            ]
+        }
+    })
+</script>
+
+<style>
+    h1, p {
+        display: inline;
+    }
+</style>
