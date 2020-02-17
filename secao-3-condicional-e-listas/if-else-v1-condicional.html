@@ -1,0 +1,22 @@
+<!--Exemplo de utilização da diretiva v-if como estrutura condicional.-->>
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <div v-if="logado"> Usuário logado: {{nome}}</div>
+    <div v-if="!logado">Usuário offline</div>
+    <br>
+    <!--Exibe o texto do botão (sair ou entrar) de acordo com o valor boleano.
+    A cada click o valor booleano é alternado com a atribuição = !logado-->
+    <button @click="logado = !logado">{{logado ? 'Sair' : 'entrar' }}</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            nome: 'Filipe Castro',
+            logado: false
+        }
+    })
+</script>
