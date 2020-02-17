@@ -1,4 +1,4 @@
-<!--Exemplo de utilização da diretiva v-else-if para seleção múltipla condicional.-->
+<!--Exemplo de utilização da diretiva v-show para exibir ou esconder elementos.-->
 <meta charset="UTF-8">
 <script src="https://unpkg.com/vue"></script>
 
@@ -15,6 +15,13 @@
     <button @click="logado = !logado">{{logado ? 'Sair' : 'entrar' }}</button>
     <input id="chk1" type="checkbox" v-model="anonimo">
     <label for="chk1"> Navegação anônima</label>
+    <hr>
+    <!--Com a diretiva v-show escondemos algum elemento, porém o elemento não foi removido,
+    ele apenas está oculto. Verificar isso na ferramenta de desenvolvedor do navegador-->
+    <footer>
+       <p v-show="logado">desenvolvido para você!</p> 
+       <p v-show="!logado">desenvolvido para você que é desconhecido!</p> 
+    </footer>
 </div>
 
 <script>
