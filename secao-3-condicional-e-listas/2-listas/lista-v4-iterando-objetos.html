@@ -1,0 +1,30 @@
+<!--template e v-for-->
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="pessoa in pessoas">
+            {{pessoa.nome}}
+        </li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                { nome: 'Joana', idade: 29, peso: 65 },
+                { nome: 'Filipe', idade: 27, peso: 85 }
+            ]
+        }
+    })
+</script>
+
+<style>
+    h1, p {
+        display: inline;
+    }
+</style>
