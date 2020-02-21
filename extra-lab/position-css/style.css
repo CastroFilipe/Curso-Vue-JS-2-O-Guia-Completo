@@ -5,7 +5,7 @@
     color: #FFF;
     text-transform: uppercase;
     text-align: center;
-    /* cursor: pointer; */
+    cursor: pointer; 
 }
 
 .primeiro {
@@ -16,4 +16,8 @@
 
 .segundo {
     background-color: #C0392B;
+}
+
+.invisivel {
+    visibility: hidden;
 }

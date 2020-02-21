@@ -1,7 +1,7 @@
 new Vue({
     el: "#app",
     data: {
-        visible : true
+        visible : false
     },
     methods: {
         alterarVisibilidade(){

@@ -11,10 +11,10 @@
 
 <body>
     <div id="app">
-        <div class="caixa primeiro" @click="alterarVisibilidade" v-show="visible">
+        <div class="caixa primeiro" @click="alterarVisibilidade" :class="{invisivel: visible}" >
             Primeira div
         </div>
-        <div class="caixa segundo">
+        <div class="caixa segundo" @click="alterarVisibilidade" :class="{invisivel: !visible}">
             Segunda div
         </div>
     </div>
