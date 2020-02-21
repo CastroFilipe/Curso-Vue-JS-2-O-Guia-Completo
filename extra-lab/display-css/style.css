@@ -2,39 +2,44 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
-#app {
+body {
+    background-color: cornsilk;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.figura-geometrica {
     display: block;
-    padding: 100px;
-    background-color: beige;
-    color: chartreuse;
+    background-color: #FAA116;
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    border: 2px solid maroon;
     box-sizing: border-box;
 }
 
-.caixa {
-    max-width: 1000px;
-    height: 200px;
-    margin: 20px auto;
-    padding: 5px;
-    background-color: orange;
-    border: 2px solid red;
-    box-sizing: inherit;
+.quadrado3 {
+    margin-left: auto;
 }
 
-.caixa1 {
-    visibility: visible;
-    position: fixed;
-    width: 200px;
-    margin: 0;
-    padding: 0;
-    bottom: 0;
-    right: 0;
+.quadrado4 {
+    margin: 2px auto;
 }
 
-.caixa2 {
-    box-sizing: border-box;
+.divPai {
+    text-align: justify;/*dispõe os elementos internos a direita*/
 }
 
-.caixa3 {
-    position: static;
+.quadrado5 {
+    display: inline-block;
+    /*text-align: left;*/
+}
+.quadrado6 {
+    display: inline-block;
 }
 
+p {
+    color: black;
+}
