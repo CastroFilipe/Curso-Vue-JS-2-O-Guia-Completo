@@ -1,0 +1,19 @@
+.caixa {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    /* cursor: pointer; */
+}
+
+.primeiro {
+    background-color: #8E44AD;
+    position: relative;/*position != de static permite a utilização das propriedades top, rigth, bottom e left*/
+    top: 200px;
+}
+
+.segundo {
+    background-color: #C0392B;
+}
