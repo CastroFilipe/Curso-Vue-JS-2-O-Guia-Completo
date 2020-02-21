@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+article {
+    background-color: yellowgreen;
+    overflow: hidden; /*Definirá a altura considerando as duas divs flutuantes*/
+    /* height: 150px; */
+}
+
+.primeiro {
+    background-color: burlywood;
+    float: right;
+}
+
+.segundo {
+    background-color: cadetblue;
+    float: right;
+}
+
+.paragrafo {
+    clear: both;
+}
