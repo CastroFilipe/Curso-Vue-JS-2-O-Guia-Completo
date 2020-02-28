@@ -1,3 +1,4 @@
+/* Estilos Gerais */
 html {
     font-family: 'Montserrat', sans-serif;
 }
@@ -11,4 +12,18 @@ html {
     margin: 10px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*Area dos pontos*/
+
+.scores {
+    display: flex;
+}
+
+.score{
+    flex: 1;
+    display: flex;
+    flex-direction: column; /*para que os elementos fiquem um abaixo do outro. Nesse caso o nome 'jogador/monstro' e a percentagem de vida*/
+    /* justify-content: center; os itens mencionados acima ficarão centralizados */
+    align-items: center;
 }
