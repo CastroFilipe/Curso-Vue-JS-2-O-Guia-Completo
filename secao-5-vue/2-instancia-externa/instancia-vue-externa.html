@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app1">
+    {{titulo1}}
+    <button @click="alterar">Alterar</button>
+</div>
+
+<div id="app2">
+    {{titulo2}}
+    <button @click="alterar">Alterar</button>
+</div>
+<!--É possível acessar uma instância vue através de outra. Todavia esssa abordagem não é muito utilizada-->
+<script>
+    const vm1 = new Vue({
+        el: '#app1',
+        data: {
+            titulo1: 'Olá'
+        },
+        methods: {
+            alterar() {//acessando a instancia vue vm2
+                vm2.titulo2 += "!!!"
+            }
+        },
+    })
+
+    const vm2 = new Vue({
+        el: '#app2',
+        data: {
+            titulo2: 'mundo'
+        }, 
+        methods: {
+            alterar() {//acessando a intancia vue vm1
+                vm1.titulo1 += "???"
+            }
+        },
+    })
+
+    setTimeout(() => {
+        vm1.titulo1 = 'Título alterado pelo Timer, acessando externamente a vm1'
+    }, 2000);
+</script>
