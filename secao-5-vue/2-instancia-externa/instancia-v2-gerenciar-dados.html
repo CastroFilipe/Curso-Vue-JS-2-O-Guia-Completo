@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app1">
+    {{titulo1}} {{novaInfo}}<!--ver erro no console-->
+    <button @click="alterar">Alterar</button>
+</div>
+
+<script>
+    const vm1 = new Vue({
+        el: '#app1',
+        data: {
+            titulo1: 'Olá'
+        },
+        methods: {
+            alterar() {
+                this.titulo1 += "!!!"
+            }
+        },
+    })
+
+    vm1.novaInfo = 'Nova informação inserida'//a propriedade foi criada, porém ela não é reativa e não será interpolada no template.
+    console.log(vm1.novaInfo)
+</script>
