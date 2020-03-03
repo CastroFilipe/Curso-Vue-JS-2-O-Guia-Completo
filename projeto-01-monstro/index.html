@@ -46,6 +46,7 @@
             <button v-else @click="startGame"
                 class="btn new-game">Iniciar Jogo</button>
         </div>
+        <!--Só será exibido se existe algum registro no log. Ou seja logs.length maior que zero-->
         <div v-if="logs.length"
             class="panel logs">
             <ul>
