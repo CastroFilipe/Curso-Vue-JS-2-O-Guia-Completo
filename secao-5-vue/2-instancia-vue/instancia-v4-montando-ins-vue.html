@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script src="http://unpkg.com/vue"></script>
+
+<div id="app">
+
+</div>
+
+<script>
+    const vm = new Vue({
+        //el: "#app",
+        
+        //template que será injetado na div de id = "app"
+        template: `
+            <div>
+                <div>{{aula}}</div>
+                <div>{{modulo}}</div>
+                <button @click="alterarAula">Alterar Aula</button>
+                <button @click="alterarModulo">Alterar Módulo</button>
+            </div>
+        `,
+        data: {
+            aula: "Aula: Montando instância VUE",
+            modulo: "Módulo: Instância VUE"
+        },
+        methods: {
+            alterarAula(){
+                this.aula += "#"
+            },
+            alterarModulo(){
+                this.modulo += "@"
+            }
+        },
+    })    
+
+    vm.$mount('#app')//forma alternativa ao atributo 'el'
+</script>
