@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+<script src="http://unpkg.com/vue"></script>
+
+<div id="app">
+    <meucomp></meuComp>
+    <meuComp></meuComp>
+    <meuComp></meuComp>
+</div>
+
+<script>
+    //criação de um componente. o componente será inserido em cada uma das tags personalizadas presente na página html
+    Vue.component('meucomp', {
+        template: `
+            <div>
+                <div>{{aula}}</div>
+                <div>{{modulo}}</div>
+                <button @click="alterarAula">Alterar Aula</button>
+                <button @click="alterarModulo">Alterar Módulo</button>
+                <br>
+                <hr>
+                <br>
+            </div>
+        `,
+        //necessário utilizar uma function que retorna um objeto com os atributos. assim, cada componente terá seus proprios atributos
+        data: function () {
+            return {
+                aula: "Aula: Montando instância VUE",
+                modulo: "Módulo: Instância VUE"
+            }
+        },
+        methods: {
+            alterarAula() {
+                this.aula += "#"
+            },
+            alterarModulo() {
+                this.modulo += "@"
+            }
+        }
+    })
+
+    //nesse exemplo a vue instance apenas irá conter o elemento html a ser controlado
+    const vm = new Vue({
+        el: "#app"
+    })    
+</script>
