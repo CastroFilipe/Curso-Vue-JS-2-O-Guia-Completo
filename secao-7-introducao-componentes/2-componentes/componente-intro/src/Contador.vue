@@ -24,7 +24,11 @@ export default {
 }
 </script>
 
-<style>
+<!--
+scoped faz com que os estilos sejam aplicados apenas nos elementos do componente Contador.
+Os estilos não serão aplicados a outros elementos fora do componente Contador
+-->
+<style scoped>
     .contador span{
         border-bottom: 1px solid #CCC;
         height: 30px;
@@ -40,5 +44,4 @@ export default {
         margin-left: 10px;
         outline: none;/*Itens selecionados não irão exibir as linhas que indicam que o item está selecionado*/
     }
-
 </style>
