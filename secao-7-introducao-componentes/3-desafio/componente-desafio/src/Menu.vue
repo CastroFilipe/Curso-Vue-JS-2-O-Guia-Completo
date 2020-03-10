@@ -1,32 +1,28 @@
 <template>
-    <v-navigation-drawer app>
-			<v-toolbar flat>
-				<v-list>
-					<v-list-tile>
-						<v-list-tile-title class="title">
-							Menu
-						</v-list-tile-title>
-					</v-list-tile>
-				</v-list>
-			</v-toolbar>
+  <v-navigation-drawer app>
+    <v-toolbar flat>
+      <v-list>
+        <v-list-tile>
+          <v-list-tile-title class="title">Menu</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-toolbar>
 
-			<v-divider></v-divider>
+    <v-divider></v-divider>
 
-            <app-itens-menu/>
-		</v-navigation-drawer>
+    <app-itens-menu />
+  </v-navigation-drawer>
 </template>
 
 <script>
-
-import ItensMenu from './ItensMenu.vue'
+import ItensMenu from "./ItensMenu.vue";
 
 export default {
-    components: {
-        'app-itens-menu': ItensMenu
-    }
-}
+  components: {
+    "app-itens-menu": ItensMenu
+  }
+};
 </script>
 
 <style>
-
 </style>
