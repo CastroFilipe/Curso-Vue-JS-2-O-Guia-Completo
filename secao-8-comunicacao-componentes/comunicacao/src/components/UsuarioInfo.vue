@@ -2,12 +2,13 @@
     <div class="componente">
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
+        <p>Nome do usuário: <strong>{{nome}}</strong></p>
     </div>
 </template>
 
 <script>
 export default {
-    
+    props: ['nome'] //define a propriedade que será aceita na tag referente a esse componente.
 }
 </script>
 
