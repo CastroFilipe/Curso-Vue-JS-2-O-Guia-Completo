@@ -4,14 +4,17 @@
         <p>Vários detalhes...</p>
         <button @click="inverterNome">Inverter Nome</button>
         <p>Nome do usuário: <strong>{{ nome }}</strong></p>
+        <p>Idade do usuário <strong>{{idade}}</strong></p>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        nome: String //define o nome e o tipo de uma propriedade. Fará a validação de tipos na passagem do parametro vindo de Usuario.vue
-    }, //define a propriedade que será aceita na tag referente a esse componente.
+    props: {//define as propriedades que serão aceitas na tag referente a esse componente.
+        //define o nome e o tipo de uma propriedade. Fará a validação de tipos na passagem do parametro vindo de Usuario.vue
+        nome: String, 
+        idade: Number
+    }, 
     methods: {
         inverterNome(){
             this.nome = this.nome.split('').reverse().join('')

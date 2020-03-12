@@ -2,15 +2,16 @@
     <div class="container">
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
-        <p>Nome: {{nome}}</p>
+        <p>Nome: {{ nome }}</p>
+        <p>Idade: {{ idade }}</p>
         <button @click="alterarNome">Alterar nome</button>
         <hr>
         <div class="componentes">
+            <!--nomeInverteu indica um evento personalizado criado no componente UsuarioInfo.vue-->
             <app-usuario-info 
-                v-bind:nome="nome"
-                @nomeInverteu="nome = $event"
-            /><!--nomeInverteu indica um evento personalizado criado no componente UsuarioInfo.vue-->
-            <app-usuario-editar />
+                v-bind:nome="nome" @nomeInverteu="nome = $event" :idade="idade"
+            />
+            <app-usuario-editar :idade="idade"/>
         </div>
     </div>
 </template>
@@ -23,7 +24,8 @@ export default {
     components: { AppUsuarioInfo, AppUsuarioEditar },
     data() {
         return {
-            nome: 'Pedro'
+            nome: 'Pedro',
+            idade: 21
         }
     },
     methods: {
