@@ -9,7 +9,9 @@
 
 <script>
 export default {
-    props: ['nome'], //define a propriedade que será aceita na tag referente a esse componente.
+    props: {
+        nome: String //define o nome e o tipo de uma propriedade. Fará a validação de tipos na passagem do parametro vindo de Usuario.vue
+    }, //define a propriedade que será aceita na tag referente a esse componente.
     methods: {
         inverterNome(){
             this.nome = this.nome.split('').reverse().join('')
