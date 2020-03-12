@@ -27,9 +27,7 @@ export default {
     },
     /*No momento de criação do componente a função callback será vinculada ao componente. */
     created(){
-        /*a função callback para alterar a idade será chamada quando o evento alterouIdade 
-        for disparado no barramento pelo componente UsuarioEditar.vue*/
-        barramento.$on('alterouIdade', (idade) => {
+        barramento.quandoIdadeMudar(idade => {
             this.idade = idade
         })
     }
