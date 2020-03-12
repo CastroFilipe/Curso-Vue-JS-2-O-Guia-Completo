@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
     props: {//define as propriedades que serão aceitas na tag referente a esse componente.
         //define o nome e o tipo de uma propriedade. Fará a validação de tipos na passagem do parametro vindo de Usuario.vue
@@ -23,6 +25,14 @@ export default {
             this.$emit('nomeInverteu', this.nome)
         }
     },
+    /*No momento de criação do componente a função callback será vinculada ao componente. */
+    created(){
+        /*a função callback para alterar a idade será chamada quando o evento alterouIdade 
+        for disparado no barramento pelo componente UsuarioEditar.vue*/
+        barramento.$on('alterouIdade', (idade) => {
+            this.idade = idade
+        })
+    }
 }
 </script>
 
