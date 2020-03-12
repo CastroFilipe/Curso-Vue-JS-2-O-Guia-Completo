@@ -2,10 +2,14 @@
     <div class="container">
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
+        <p>Nome: {{nome}}</p>
         <button @click="alterarNome">Alterar nome</button>
         <hr>
         <div class="componentes">
-            <app-usuario-info v-bind:nome="nome"/>
+            <app-usuario-info 
+                v-bind:nome="nome"
+                @nomeInverteu="nome = $event"
+            /><!--nomeInverteu indica um evento personalizado criado no componente UsuarioInfo.vue-->
             <app-usuario-editar />
         </div>
     </div>

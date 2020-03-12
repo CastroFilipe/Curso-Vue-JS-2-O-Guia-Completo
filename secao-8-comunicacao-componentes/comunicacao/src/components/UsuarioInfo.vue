@@ -15,6 +15,9 @@ export default {
     methods: {
         inverterNome(){
             this.nome = this.nome.split('').reverse().join('')
+            /*dispara um evento chamado nomeInverteu quando a função inverterNome() modificar o nome.
+            Assim o componente pai Usuario.vue será notificado da mudança e poderá fazer algo.*/
+            this.$emit('nomeInverteu', this.nome)
         }
     },
 }
