@@ -3,6 +3,7 @@
         <h2>Alterar os Dados de Usuário</h2>
         <p>Edite as informações</p>
         <p>Idade do usuário <strong>{{idade}}</strong></p>
+        <button @click="alterarIdade">Alterar idade</button>
     </div>
 </template>
 
@@ -10,7 +11,13 @@
 export default {
     props: {
         idade: Number
-    }
+    },
+    methods: {
+        alterarIdade(){
+            this.idade++
+            this.$emit('alterouIdade', this.idade)
+        }
+    },
 }
 </script>
 

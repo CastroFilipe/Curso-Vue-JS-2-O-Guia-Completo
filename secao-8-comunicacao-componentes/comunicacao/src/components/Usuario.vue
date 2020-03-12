@@ -11,7 +11,7 @@
             <app-usuario-info 
                 v-bind:nome="nome" @nomeInverteu="nome = $event" :idade="idade"
             />
-            <app-usuario-editar :idade="idade"/>
+            <app-usuario-editar :idade="idade" @alterouIdade="idade = $event"/>
         </div>
     </div>
 </template>
