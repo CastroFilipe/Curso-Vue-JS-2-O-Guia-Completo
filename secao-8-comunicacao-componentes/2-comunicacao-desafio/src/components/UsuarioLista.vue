@@ -1,14 +1,14 @@
 <template>
     <div class="usuario-lista">
         <table>
-            <thead>
+            <thead @click="selecionar(null)">
                 <tr>
                     <th>#ID</th>
                     <th>Nome</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="usuario in usuarios" :key="usuario.id">
+                <tr v-for="usuario in usuarios" :key="usuario.id" @click="selecionar(usuario)">
                     <td>{{ usuario.id }}</td>
                     <td>{{ usuario.nome }}</td>
                 </tr>
@@ -18,8 +18,15 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
-    props: { usuarios: Array }
+    props: { usuarios: Array },
+    methods: {
+        selecionar(usuario){
+            barramento.selecionar(usuario)
+        }
+    },
 }
 </script>
 
@@ -30,12 +37,12 @@ export default {
     }
 
     table {
+        cursor: pointer;
         flex: 1;
         border-spacing: 0px;
         border-collapse: separate;
         border-top: 1px solid #CCC;
     }
-
 
     th, td {
         padding: 15px;
