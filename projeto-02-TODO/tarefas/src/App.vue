@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<h1>Tarefas</h1>
-
+		<NewTask @taskAdded="addTask($event)"></NewTask>
 		<Task-grid :tasks="tasks"></Task-grid>
 
 	</div>
@@ -9,24 +9,35 @@
 
 <script>
 import TaskGrid from '@/components/TaskGrid.vue'
+import NewTask from '@/components/NewTask.vue'
 
 export default {
 	components: {
-		TaskGrid
+		TaskGrid,
+        NewTask
 	},
 	data() {
 		return {
 			tasks: [
 				{name: 'Lavar louça', pending: false},
 				{name: 'Comprar blusa', pending: true},
-				{name: 'Comprar fruta', pending: true},
-				{name: 'Comprar flores', pending: true},
-				{name: 'Comprar feijão', pending: true},
-				{name: 'Comprar', pending: true},
-				{name: 'Comprar', pending: true},
 			]
 		}
 	},
+	methods: {
+		addTask(task){
+			const funcaoComparar = t => t.name === task.name //verifica se a task tem o mesmo nome de uma task t qualquer
+
+			const nomeIgual = this.tasks.filter(funcaoComparar)
+
+			if(nomeIgual.length == 0){//indica que não existe nehuma task t com mesmo nome da task passada como parametro
+				task.pending = true
+				this.tasks.push(task)
+			}
+		}
+	},
+	
+	
 }
 </script>
 
