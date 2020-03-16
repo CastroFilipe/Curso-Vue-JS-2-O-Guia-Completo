@@ -1,6 +1,8 @@
 <template>
     <div class="citacao">
-        <slot></slot><!--tag do framework vue-->
+        <slot name="autor"></slot><!--tag do framework vue-->
+        <slot name="texto"></slot>
+        <slot name="fonte"></slot>
     </div>
 </template>
 
