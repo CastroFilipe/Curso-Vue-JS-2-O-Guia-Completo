@@ -1,7 +1,15 @@
 <template>
 	<div id="app">
-		<Citacoes />
-		<Sobre />
+		<span>
+			<button @click="meuComponente = 'Citacoes'">Citacoes</button>
+			<button @click="meuComponente = 'Sobre'">Sobre</button>
+		</span>
+		
+		<!--tag que impede que o componente seja criado e destuido sempre que o componente 'sobre' for selecionado-->
+		<keep-alive>
+			<!--tag component do vue-->
+			<component :is="meuComponente"></component>
+		</keep-alive>
 	</div>
 </template>
 
@@ -10,7 +18,12 @@ import Citacoes from './components/Citacoes'
 import Sobre from './components/Sobre'
 
 export default {
-	components: { Citacoes, Sobre }
+	components: { Citacoes, Sobre },
+	data(){
+		return {
+			meuComponente : 'Citacoes'
+		}
+	}
 }
 </script>
 
