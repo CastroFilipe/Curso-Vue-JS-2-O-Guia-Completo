@@ -1,6 +1,7 @@
 <template>
     <div class="task" :class="stateClass">
-        <p> {{task.name}} </p>
+        <span class="close">x</span>
+        <p> {{task.name}} </p>        
     </div>
 </template>
 
@@ -22,6 +23,7 @@ export default {
 
 <style>
     .task {
+        position: relative;
         box-sizing: border-box;
         width: 350px;
         height: 150px;
@@ -46,6 +48,30 @@ export default {
         background-color: green;
         text-decoration: line-through;
         border-left: 12px solid rgb(116, 156, 55);
+    }
+
+    .pending .close {
+        background-color: #B73229;
+    }
+
+    .done .close {
+        background-color: #0A8f08;
+    }
+
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        font-size: 0.9rem;
+        font-weight: 600;
+        
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        
+        display: flex;
+        justify-content: center;
     }
 
 </style>
