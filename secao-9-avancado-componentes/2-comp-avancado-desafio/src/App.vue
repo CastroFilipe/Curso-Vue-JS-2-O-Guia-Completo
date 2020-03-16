@@ -1,14 +1,14 @@
 <template>
 	<div id="app">
 		<span>
-			<button class="vermelho">Carregar Componente Vermelho</button>
-			<button class="verde">Carregar Componente Verde</button>
-			<button class="azul">Carregar Componente Azul</button>
+			<button class="vermelho" @click="meuComponente='Vermelho'">Carregar Componente Vermelho</button>
+			<button class="verde" @click="meuComponente='Verde'">Carregar Componente Verde</button>
+			<button class="azul" @click="meuComponente='Azul'">Carregar Componente Azul</button>
 		</span>
 		
-		<Vermelho />
-		<Verde />
-		<Azul />
+		<component :is="meuComponente">
+			<span> Conteúdo do Componente <strong>{{meuComponente}}</strong></span>
+		</component>
 	</div>
 </template>
 
@@ -20,6 +20,11 @@ import Azul from './components/Azul.vue'
 export default {
 	name: 'app',
 	components: { Vermelho, Verde, Azul },
+	data() {
+		return {
+			meuComponente: 'Vermelho'
+		}
+	},
 }
 </script>
 
@@ -37,6 +42,7 @@ export default {
 		padding: 10px;
 		color: #FFF;
 		font-size: 1.3rem;
+		cursor: pointer;
 	}
 
     .caixa {
