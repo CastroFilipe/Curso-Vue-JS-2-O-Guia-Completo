@@ -1,7 +1,9 @@
 <template>
     <div>
-        <p class="nome">Citações</p>
-        <p class="versao">Versão 1.0</p>
+        <div class="sobre">
+            <p class="nome">Citações</p>
+            <p class="versao">Versão 1.0</p>
+        </div>
     </div>
 </template>
 
@@ -13,6 +15,12 @@ export default {
 
 <style scoped>
     div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sobre {
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -8,7 +8,7 @@
 		<!--tag que impede que o componente seja criado e destuido sempre que o componente 'sobre' for selecionado-->
 		<keep-alive>
 			<!--tag component do vue-->
-			<component :is="meuComponente"></component>
+			<component class="meu-componente" :is="meuComponente"></component>
 		</keep-alive>
 	</div>
 </template>
@@ -46,5 +46,11 @@ export default {
         font-weight: 300;
         color: #FFF;
         background-color: rgba(0, 0, 0, .5);
-    }
+	}
+	
+	.meu-componente {
+		display: flex;
+		height: 50%;
+		width: 50%;
+	}
 </style>
