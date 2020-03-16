@@ -1,12 +1,11 @@
 <template>
     <div class="citacao">
-        
+        <slot></slot><!--tag do framework vue-->
     </div>
 </template>
 
 <script>
 export default {
-
 }
 </script>
 
