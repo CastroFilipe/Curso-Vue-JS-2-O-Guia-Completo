@@ -1,6 +1,6 @@
 <template>
     <div class="task" :class="stateClass">
-        <span class="close">x</span>
+        <span @click="taskDeleted" class="close">x</span>
         <p> {{task.name}} </p>        
     </div>
 </template>
@@ -9,6 +9,11 @@
 export default {
     props: {
         task: {type: Object, required: true}
+    },
+    methods: {
+        taskDeleted(){
+            this.$emit('taskDeleted', this.task)
+        }
     },
     computed: {
         stateClass() {//teste para verificar se a tarefa está pendente ou não. Assim será possível definir qual classe aplicar(classe pending ou done)
@@ -72,6 +77,11 @@ export default {
         
         display: flex;
         justify-content: center;
+    }
+
+    .close:hover {
+        color: black;
+        background-color: white;
     }
 
 </style>
