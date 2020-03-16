@@ -1,6 +1,6 @@
 <template>
-    <div class="task" :class="stateClass">
-        <span @click="taskDeleted" class="close">x</span>
+    <div class="task" :class="stateClass" @click="mudarEstado">
+        <span @click.stop="taskDeleted" class="close">x</span>
         <p> {{task.name}} </p>        
     </div>
 </template>
@@ -13,6 +13,9 @@ export default {
     methods: {
         taskDeleted(){
             this.$emit('taskDeleted', this.task)
+        },
+        mudarEstado(){
+            this.$emit('mudarEstado', this.task)
         }
     },
     computed: {
