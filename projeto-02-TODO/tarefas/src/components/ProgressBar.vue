@@ -18,6 +18,7 @@ export default {
         position: relative;
         border: 1px solid white;
         width: 80%;
+        min-height: 25px;
         margin: 5px auto;
         color: white;
         border-radius: 8px;
@@ -28,11 +29,11 @@ export default {
         height: 100%;
         width: 0%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+
     }
 
     .progress-value{
         position: absolute;
+        left: 50%;
     }
 </style>
