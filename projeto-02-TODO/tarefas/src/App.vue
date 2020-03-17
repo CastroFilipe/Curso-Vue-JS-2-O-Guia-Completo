@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<h1>Tarefas</h1>
+		<ProgressBar :porcentagem="calcularPorcentagem"></ProgressBar>
 		<NewTask @taskAdded="addTask($event)"></NewTask>
 		<Task-grid :tasks="tasks" 
 		@taskDeleted="deleteTask"
@@ -12,11 +13,13 @@
 <script>
 import TaskGrid from '@/components/TaskGrid.vue'
 import NewTask from '@/components/NewTask.vue'
+import ProgressBar from '@/components/ProgressBar.vue'
 
 export default {
 	components: {
 		TaskGrid,
-        NewTask
+		NewTask,
+		ProgressBar
 	},
 	data() {
 		return {
@@ -39,6 +42,15 @@ export default {
 		},
 		mudarEstado(task){
 			task.pending = !task.pending
+		}
+	},
+	computed: {
+		calcularPorcentagem(){
+			const concluidos = this.tasks.filter(t => t.pending === false).length
+			const tamanho = this.tasks.length
+			const porcentagem = Math.round(concluidos/tamanho *100) || 0
+			console.log(porcentagem)
+			return porcentagem
 		}
 	},
 }
