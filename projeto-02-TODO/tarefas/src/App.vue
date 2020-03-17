@@ -26,6 +26,18 @@ export default {
 			tasks: []
 		}
 	},
+	watch: {
+		tasks: {
+			deep: true,
+			handler(){
+				localStorage.setItem('tasks', JSON.stringify(this.tasks))
+			}
+		}
+	},
+	created() {
+		const json = localStorage.getItem('tasks')
+		this.tasks = JSON.parse(json) || []
+	},
 	methods: {
 		addTask(task){
 			const funcaoComparar = t => t.name === task.name //verifica se a task tem o mesmo nome de uma task t qualquer
