@@ -21,8 +21,14 @@
 					<textarea name="" cols="30" rows="5" v-model="mensagemTextArea"></textarea>
 				</Rotulo>
 				<Rotulo nome="Características do Problema">
-					<span class="mr-4"><input type="checkbox" value="reproduzivel"> Reproduzível</span>
-					<span><input type="checkbox" value="intermitente"> Intermitente</span>
+					<!--o valor contido em 'value' será adicionado ao array 'caracteristicasSelecionadas' 
+					quando o checkbox for selecionado-->
+					<span class="mr-4">
+						<input type="checkbox" value="reproduzivel" v-model="caracteristicasSelecionadas"> Reproduzível
+					</span>
+					<span>
+						<input type="checkbox" value="intermitente" v-model="caracteristicasSelecionadas"> Intermitente
+					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
 					<span class="mr-4"><input type="radio"> Web</span>
@@ -40,6 +46,7 @@
 				<hr>
 				<button>Enviar</button>
 			</form>
+
 			<div class="painel">
 				<div class="cabecalho">Resultado</div>
 				<Rotulo nome="E-mail">
@@ -57,7 +64,11 @@
 					<span style="white-space: pre;">{{mensagemTextArea}}</span>
 				</Rotulo>
 				<Rotulo nome="Marque as Opções">
-					<span>???</span>
+					<span>
+						<ul>
+							<li v-for="c in caracteristicasSelecionadas" :key="c.value">{{c}}</li>
+						</ul>
+					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
 					<span>???</span>
@@ -83,6 +94,7 @@ export default {
 	data() {
 		return {
 			mensagemTextArea: '',
+			caracteristicasSelecionadas: [],
 			usuario: {
 				email: '',
 				senha: '',
