@@ -31,9 +31,12 @@
 					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span class="mr-4"><input type="radio"> Web</span>
-					<span class="mr-4"><input type="radio"> Mobile</span>
-					<span><input type="radio"> Outro</span>
+					<!--devido a mesma propriedade v-model está em todos os radiobuttons o vue impedirá a seleção 
+					de mais de uma opção por vez. O valor contido em 'value' será setado na propriedade 'produtoSelecionado' 
+					quando o radiobutton for selecionado-->
+					<span class="mr-4"><input type="radio" value="web" v-model="produtoSelecionado"> Web</span>
+					<span class="mr-4"><input type="radio" value="mobile" v-model="produtoSelecionado"> Mobile</span>
+					<span><input type="radio" value="outro" v-model="produtoSelecionado"> Outro</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<select name="" id="">
@@ -71,7 +74,7 @@
 					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span>???</span>
+					<span>{{produtoSelecionado}}</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<span>???</span>
@@ -95,6 +98,7 @@ export default {
 		return {
 			mensagemTextArea: '',
 			caracteristicasSelecionadas: [],
+			produtoSelecionado: 'web',
 			usuario: {
 				email: '',
 				senha: '',
