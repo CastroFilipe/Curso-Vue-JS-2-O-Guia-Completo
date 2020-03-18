@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Registrar Reclamação</h1>
 		<div class="conteudo">
-			<form class="painel">
+			<form class="painel" v-if="!formularioEnviado">
 				<div class="cabecalho">Formulário</div>
 				<Rotulo nome="E-mail">
 					<!--os modificadores de entradas do usuário lazy e trim fazem alterações no input digitado.
@@ -49,10 +49,10 @@
 					<Escolha v-model="primeiraReclamacao"/>
 				</Rotulo>
 				<hr>
-				<button>Enviar</button>
+				<button @click.prevent="enviar">Enviar</button>
 			</form>
 
-			<div class="painel">
+			<div class="painel" v-if="formularioEnviado">
 				<div class="cabecalho">Resultado</div>
 				<Rotulo nome="E-mail">
 					<span>{{usuario.email}}</span>
@@ -112,7 +112,13 @@ export default {
 				senha: '',
 				idade: 25
 			},
-			primeiraReclamacao: false
+			primeiraReclamacao: false,
+			formularioEnviado: false
+		}
+	},
+	methods: {
+		enviar(){
+			this.formularioEnviado = true
 		}
 	},
 }
