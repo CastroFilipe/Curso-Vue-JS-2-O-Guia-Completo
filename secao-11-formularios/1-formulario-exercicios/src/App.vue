@@ -39,8 +39,10 @@
 					<span><input type="radio" value="outro" v-model="produtoSelecionado"> Outro</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<select name="" id="">
-						<option></option>
+					<select v-model="prioridadeSelecionada">
+						<!--iteração sobre a lista 'niveisPrioridade' com os valores que serão exibidos na caixa
+						de seleção-->
+						<option v-for="op in niveisPrioridade" :key="op.codigo" :value="op.codigo">{{op.nome}}</option>
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
@@ -77,7 +79,7 @@
 					<span>{{produtoSelecionado}}</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<span>???</span>
+					<span>{{prioridadeSelecionada}}</span>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
 					<span>???</span>
@@ -99,6 +101,12 @@ export default {
 			mensagemTextArea: '',
 			caracteristicasSelecionadas: [],
 			produtoSelecionado: 'web',
+			niveisPrioridade: [
+				{codigo: 1, nome: 'Baixa'},
+				{codigo: 2, nome: 'Média'},
+				{codigo: 3, nome: 'Alta'}
+			],
+			prioridadeSelecionada: 1,
 			usuario: {
 				email: '',
 				senha: '',
