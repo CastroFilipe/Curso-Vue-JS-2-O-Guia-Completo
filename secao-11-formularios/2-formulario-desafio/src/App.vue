@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Formulário Desafio</h1>
 		<div class="conteudo">
-			<form class="painel">
+			<form class="painel" v-if="!enviado">
 				<div class="cabecalho">Formulário</div>
 				<!-- Exercicio 01 -->
 				<!-- Criar uma formulário de registro -->
@@ -34,8 +34,13 @@
 					<span class="inputRadio"><input type="radio" :value=true v-model="armazenarDados">Sim</span>
 					<span class="inputRadio"><input type="radio" :value=false v-model="armazenarDados">Não</span>
 				</Rotulo>
+
+				<button @click.prevent="enviar">
+					Submeter
+				</button>
 			</form>
-			<div class="painel">
+
+			<div class="painel" v-if="enviado">
 				<div class="cabecalho">Resultado</div>
 
 				<Rotulo nome="Nome">
@@ -75,7 +80,18 @@ export default {
 				sobreNome: '',
 				senha: ''
 			},
-			armazenarDados: true
+			armazenarDados: true,
+			enviado: false
+		}
+	},
+	methods: {
+		enviar(){
+			this.enviado = true
+
+			if(this.armazenarDados == true){
+				//simular dados sendo salvos no banco
+				console.log('Dados armazenados com sucesso')
+			}
 		}
 	},
 }
