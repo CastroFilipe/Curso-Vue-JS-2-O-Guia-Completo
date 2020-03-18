@@ -18,7 +18,7 @@
 					<input type="number" v-model.number="usuario.idade">
 				</Rotulo>
 				<Rotulo nome="Mensagem">
-					<textarea name="" cols="30" rows="5"></textarea>
+					<textarea name="" cols="30" rows="5" v-model="mensagemTextArea"></textarea>
 				</Rotulo>
 				<Rotulo nome="Características do Problema">
 					<span class="mr-4"><input type="checkbox" value="reproduzivel"> Reproduzível</span>
@@ -52,7 +52,9 @@
 					<span>{{usuario.idade}}</span>	
 				</Rotulo>
 				<Rotulo nome="Mensagem">
-					<span>???</span>
+					<!--a propriedade css white-space com o valor 'pre' fará com que os espaços em branco e
+					quebras de linhas digitadas pelo usuário sejam preservadas, não sendo removidos-->
+					<span style="white-space: pre;">{{mensagemTextArea}}</span>
 				</Rotulo>
 				<Rotulo nome="Marque as Opções">
 					<span>???</span>
@@ -80,6 +82,7 @@ export default {
 	components: { Rotulo, Escolha },
 	data() {
 		return {
+			mensagemTextArea: '',
 			usuario: {
 				email: '',
 				senha: '',
