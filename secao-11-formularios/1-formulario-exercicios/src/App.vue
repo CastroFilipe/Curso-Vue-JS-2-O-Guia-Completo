@@ -5,13 +5,17 @@
 			<form class="painel">
 				<div class="cabecalho">Formulário</div>
 				<Rotulo nome="E-mail">
-					<input type="text" v-model="usuario.email">
+					<!--os modificadores de entradas do usuário lazy e trim fazem alterações no input digitado.
+					lazy fará com que o two way data binding ocorrá somente quando o usuário retirar o cursor do input
+					trim removerá os espaços em branco antes e depois do valor digitado-->
+					<input type="text" v-model.lazy.trim="usuario.email">
 				</Rotulo>
 				<Rotulo nome="Senha">
 					<input type="password" v-model="usuario.senha">
 				</Rotulo>
 				<Rotulo nome="Idade">
-					<input type="number" v-model="usuario.idade">
+					<!--modificador number em v-model.number garante que o valor será um número e não uma string-->
+					<input type="number" v-model.number="usuario.idade">
 				</Rotulo>
 				<Rotulo nome="Mensagem">
 					<textarea name="" cols="30" rows="5"></textarea>
