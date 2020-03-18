@@ -18,10 +18,45 @@
 				<!-- Exercicio 03 -->
 				<!-- Crie um componente personalizado NomeCompleto -->
 				<!-- Esse componente deve receber Nome e Sobrenome -->
+				<Rotulo nome="Nome">
+					<input type="text" v-model.lazy.trim="usuario.nome">
+				</Rotulo>
+				<Rotulo nome="Sobre nome">
+					<input type="text" v-model.lazy.trim="usuario.sobreNome">
+				</Rotulo>
+				<Rotulo nome="E-mail">
+					<input type="email" v-model.lazy.trim="usuario.email">
+				</Rotulo>
+				<Rotulo nome="Senha">
+					<input type="password" v-model="usuario.senha">
+				</Rotulo>
+				<Rotulo nome="Armazenar dados?">
+					<span class="inputRadio"><input type="radio" :value=true v-model="armazenarDados">Sim</span>
+					<span class="inputRadio"><input type="radio" :value=false v-model="armazenarDados">Não</span>
+				</Rotulo>
 			</form>
 			<div class="painel">
 				<div class="cabecalho">Resultado</div>
 
+				<Rotulo nome="Nome">
+					{{usuario.nome}}
+				</Rotulo>
+
+				<Rotulo nome="Sobre nome">
+					{{usuario.sobreNome}}
+				</Rotulo>
+
+				<Rotulo nome="E-mail">
+					{{usuario.email}}
+				</Rotulo>
+
+				<Rotulo nome="Senha">
+					{{usuario.senha}}
+				</Rotulo>
+				
+				<Rotulo nome="Armazenar dados?">
+					{{armazenarDados ? 'Sim'  : 'Não'}}<!-- {{typeof armazenarDados}} -->
+				</Rotulo>
 			</div>
 		</div>
 	</div>
@@ -32,7 +67,17 @@ import Rotulo from './components/Rotulo.vue'
 
 export default {
 	name: 'app',
-	components: { Rotulo }
+	components: { Rotulo },
+	data() {
+		return {
+			usuario: {
+				nome: '',
+				sobreNome: '',
+				senha: ''
+			},
+			armazenarDados: true
+		}
+	},
 }
 </script>
 
@@ -90,7 +135,7 @@ body {
 	padding: 0;
 }
 
-.mr-4 {
+.inputRadio {
 	margin-right: 40px;
 }
 </style>
