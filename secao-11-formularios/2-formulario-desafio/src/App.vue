@@ -43,12 +43,8 @@
 			<div class="painel" v-if="enviado">
 				<div class="cabecalho">Resultado</div>
 
-				<Rotulo nome="Nome">
-					{{usuario.nome}}
-				</Rotulo>
-
-				<Rotulo nome="Sobre nome">
-					{{usuario.sobreNome}}
+				<Rotulo nome="Nome Completo">
+					<NomeCompleto :nome="usuario.nome" :sobreNome="usuario.sobreNome"></NomeCompleto>
 				</Rotulo>
 
 				<Rotulo nome="E-mail">
@@ -69,10 +65,11 @@
 
 <script>
 import Rotulo from './components/Rotulo.vue'
+import NomeCompleto from './components/NomeCompleto.vue'
 
 export default {
 	name: 'app',
-	components: { Rotulo },
+	components: { Rotulo, NomeCompleto },
 	data() {
 		return {
 			usuario: {
