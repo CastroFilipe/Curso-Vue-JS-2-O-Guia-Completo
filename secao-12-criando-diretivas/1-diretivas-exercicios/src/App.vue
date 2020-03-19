@@ -8,6 +8,9 @@
 
 		<!-- A diretiva v-html interpreta as tags html. Ler sobre ataques cross site scripting -->
 		<p v-html="'usando a diretiva v-html que interpreta <strong>tags html</strong>'"></p>
+		<hr>
+		<!-- Usando a diretiva personalizada -->
+		<p v-destaque>Usando a diretiva personalizada v-destaque</p>
 
 	</div>
 </template>
