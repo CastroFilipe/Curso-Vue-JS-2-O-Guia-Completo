@@ -13,6 +13,9 @@
 		<p v-destaque="'brown'">Usando a diretiva personalizada v-destaque com passagem de valor</p>
 		<p v-destaque="cor">Usando a diretiva personalizada v-destaque com passagem de valor</p>
 
+		<p v-destaque="cor">passagem de valor sem a utilização do argumento</p>
+		<p v-destaque:fundo="cor">Passagem de valor através do argumento 'fundo'</p>
+
 	</div>
 </template>
 
@@ -20,7 +23,7 @@
 export default {
 	data() {
 		return {
-			cor : 'gray'
+			cor : 'green'
 		}
 	},
 }
