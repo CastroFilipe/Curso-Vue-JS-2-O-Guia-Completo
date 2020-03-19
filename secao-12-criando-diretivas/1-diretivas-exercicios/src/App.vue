@@ -22,6 +22,12 @@
 
 		<!-- Diretiva local -->
 		<p v-destaque-local>diretiva local</p>
+
+		<!-- Diretiva com o modificador alternar cores -->
+		<p v-estilo-local.alternar="'pink'">diretiva com modificador alternar</p>
+
+		<!-- Diretiva com múltiplos modificadores -->
+		<p v-estilo-local.alternar.atrasar="'pink'">diretiva com múltiplos modificadores: alternar e atrasar</p>
 	</div>
 </template>
 
@@ -31,6 +37,38 @@ export default {
 		'destaque-local': {
 			bind(el){
 				el.style.fontSize = '4.0rem'
+			}
+		},
+		//criação de diretiva para aplicação de mais de um modificador. Exemplo: v-estilo-local.fundo.atrasar.mod3.mod4...
+		'estilo-local' :{
+			bind(el, binding){
+				const aplicarCor = cor => {
+					if(binding.arg === 'fundo') {
+						el.style.backgroundColor = cor
+					} else {
+						el.style.color = cor
+					}
+				}
+
+				let tempoDeAtraso = 0
+				if(binding.modifiers['atrasar']){
+					tempoDeAtraso = 3500
+				}
+
+				const cor1 = binding.value
+				const cor2 = 'purple'
+				let corAtual = cor1
+
+				setTimeout(() => {
+					if(binding.modifiers['alternar']){//se existe o modificador alternar, ficará alternando as cores
+						setInterval(() => {
+							corAtual = corAtual === cor1 ? cor2 : cor1
+							aplicarCor(corAtual)
+						}, 1000)
+					} else { //se não, aplicará a cor apenas uma vez
+						aplicarCor(binding.value)
+					}
+				}, tempoDeAtraso)
 			}
 		}
 	},
