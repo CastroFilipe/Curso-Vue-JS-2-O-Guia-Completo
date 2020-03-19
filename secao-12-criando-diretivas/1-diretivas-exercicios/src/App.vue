@@ -1,6 +1,14 @@
 <template>
 	<div id="app">
 		<h1>Diretivas</h1>
+		<hr>
+		<!-- As diretiva interpretam códigos javascript válidos, por isso nesse exemplo o texto é uma String dentro de aspas simples.
+		O texto dentro da tag p será o texto passado na diretiva. Para ver esse comportamento, inspecionar o elemento. -->
+		<p v-text="'Usando diretiva v-text.'"></p>
+
+		<!-- A diretiva v-html interpreta as tags html. Ler sobre ataques cross site scripting -->
+		<p v-html="'usando a diretiva v-html que interpreta <strong>tags html</strong>'"></p>
+
 	</div>
 </template>
 
