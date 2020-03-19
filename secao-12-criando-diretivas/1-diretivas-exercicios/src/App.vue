@@ -10,14 +10,19 @@
 		<p v-html="'usando a diretiva v-html que interpreta <strong>tags html</strong>'"></p>
 		<hr>
 		<!-- Usando a diretiva personalizada -->
-		<p v-destaque>Usando a diretiva personalizada v-destaque</p>
+		<p v-destaque="'brown'">Usando a diretiva personalizada v-destaque com passagem de valor</p>
+		<p v-destaque="cor">Usando a diretiva personalizada v-destaque com passagem de valor</p>
 
 	</div>
 </template>
 
 <script>
 export default {
-	
+	data() {
+		return {
+			cor : 'gray'
+		}
+	},
 }
 </script>
 

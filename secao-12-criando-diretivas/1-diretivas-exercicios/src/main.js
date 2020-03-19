@@ -5,8 +5,8 @@ Vue.config.productionTip = false
 
 //trecho que criará a diretiva global nomeada como 'destaque'
 Vue.directive('destaque', {
-	bind(el){
-		el.style.backgroundColor = 'lightgreen'
+	bind(el, binding){
+		el.style.backgroundColor = binding.value//usará o valor passado na diretiva para definir a cor de fundo
 	}
 })
 
