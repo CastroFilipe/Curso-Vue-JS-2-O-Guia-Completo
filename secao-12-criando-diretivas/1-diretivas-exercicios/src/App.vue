@@ -9,18 +9,31 @@
 		<!-- A diretiva v-html interpreta as tags html. Ler sobre ataques cross site scripting -->
 		<p v-html="'usando a diretiva v-html que interpreta <strong>tags html</strong>'"></p>
 		<hr>
-		<!-- Usando a diretiva personalizada -->
+		<!-- Usando a diretiva global personalizada -->
 		<p v-destaque="'brown'">Usando a diretiva personalizada v-destaque com passagem de valor</p>
 		<p v-destaque="cor">Usando a diretiva personalizada v-destaque com passagem de valor</p>
 
 		<p v-destaque="cor">passagem de valor sem a utilização do argumento</p>
 		<p v-destaque:fundo="cor">Passagem de valor através do argumento 'fundo'</p>
 
+		<!-- Exemplo de função: Aplicação atrasada do estilo -->
+		<p v-destaque.atrasar="'orange'">Aplicação atrasada de estilo</p>
+		<p v-destaque="'orange'">Aplicação instantânea de estilo</p>
+
+		<!-- Diretiva local -->
+		<p v-destaque-local>diretiva local</p>
 	</div>
 </template>
 
 <script>
 export default {
+	directives: {
+		'destaque-local': {
+			bind(el){
+				el.style.fontSize = '4.0rem'
+			}
+		}
+	},
 	data() {
 		return {
 			cor : 'green'
