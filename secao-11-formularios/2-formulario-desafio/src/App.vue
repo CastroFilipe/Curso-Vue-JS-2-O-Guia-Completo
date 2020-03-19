@@ -18,12 +18,9 @@
 				<!-- Exercicio 03 -->
 				<!-- Crie um componente personalizado NomeCompleto -->
 				<!-- Esse componente deve receber Nome e Sobrenome -->
-				<Rotulo nome="Nome">
-					<input type="text" v-model.lazy.trim="usuario.nome">
-				</Rotulo>
-				<Rotulo nome="Sobre nome">
-					<input type="text" v-model.lazy.trim="usuario.sobreNome">
-				</Rotulo>
+
+				<NomeCompleto v-model="usuario.nomeCompleto"></NomeCompleto>
+				
 				<Rotulo nome="E-mail">
 					<input type="email" v-model.lazy.trim="usuario.email">
 				</Rotulo>
@@ -44,7 +41,7 @@
 				<div class="cabecalho">Resultado</div>
 
 				<Rotulo nome="Nome Completo">
-					<NomeCompleto :nome="usuario.nome" :sobreNome="usuario.sobreNome"></NomeCompleto>
+					{{usuario.nomeCompleto.nome}} {{usuario.nomeCompleto.sobreNome}}
 				</Rotulo>
 
 				<Rotulo nome="E-mail">
@@ -73,8 +70,10 @@ export default {
 	data() {
 		return {
 			usuario: {
-				nome: '',
-				sobreNome: '',
+				nomeCompleto: {
+					nome: '',
+					sobreNome: ''
+				},
 				senha: ''
 			},
 			armazenarDados: true,
