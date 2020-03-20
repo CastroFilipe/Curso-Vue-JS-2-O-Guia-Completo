@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     ul, li {
         padding: 0px;
         margin: 0px;
