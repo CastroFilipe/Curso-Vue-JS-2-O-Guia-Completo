@@ -15,19 +15,10 @@
 </template>
 
 <script>
+import frutasMixin from '@/frutasMixin.js'
+
 export default {
-    data(){
-        return {
-            fruta: '',
-            frutas: ['Uva', 'Acerola', 'Açai']
-        }
-    },
-    methods: {
-        adicionar(){
-            this.frutas.push(this.fruta)
-            this.fruta = ''
-        }
-    },
+    mixins: [frutasMixin] //todos os atributos foram substituidos pelo mixin que contém o código.
 }
 </script>
 

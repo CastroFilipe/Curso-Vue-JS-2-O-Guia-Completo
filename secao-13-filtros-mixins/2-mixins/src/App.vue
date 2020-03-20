@@ -20,27 +20,23 @@
                 <button @click="adicionar">+</button>
             </div>
         </div>
+        <hr>
+        <p>{{usuarioLogado}}</p>
 
     </div>
 </template>
 
 <script>
 import Frutas from '@/components/Frutas.vue'
+import frutasMixin from '@/frutasMixin.js'
+import usuarioLogadoMixin from '@/usuarioLogadoMixin.js'
 
 export default {
     components: {Frutas},
-
-    // dados replicados do componente Frutas.vue
-    data(){
+    mixins: [frutasMixin, usuarioLogadoMixin], //todos os atributos foram substituidos pelo mixin que contém o código.
+    data() {
         return {
-            fruta: '',
-            frutas: ['Uva', 'Acerola', 'Açai']
-        }
-    },
-    methods: {
-        adicionar(){
-            this.frutas.push(this.fruta)
-            this.fruta = ''
+            frutas: ['BaNaNa']//sobrescreve o valor presente no mixin
         }
     },
 }
