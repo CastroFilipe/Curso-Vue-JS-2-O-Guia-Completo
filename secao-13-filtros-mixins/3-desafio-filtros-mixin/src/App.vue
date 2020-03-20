@@ -3,11 +3,13 @@
 		<h1>Filtros & Mixins (Desafio)</h1>
 		<!-- Exercício 1 -->
 		<!-- Construir um filtro local que troca espaços por vírgula -->
+		<p>{{ frase1 | replaceSpaces}}</p>
 		
 		<!-- Exercício 2 -->
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
 			valor na string final -->
 		<!-- "Pedro é legal" => "Pedro (5) é (1) legal (5)" -->
+		<p>{{ frase2 | contarCaracteres}}</p>
 
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
@@ -19,7 +21,17 @@
 
 <script>
 export default {
-	
+	filters: {
+		replaceSpaces(valor){
+			return valor.replace(/\s/g, ',')
+		},
+	},
+	data() {
+		return {
+			frase1: 'Isto é uma caliúnia! Uma caliúnia! Você sabe o que é uma caliúnia?',
+			frase2: 'Pedro é legal'
+		}
+	},
 }
 </script>
 
