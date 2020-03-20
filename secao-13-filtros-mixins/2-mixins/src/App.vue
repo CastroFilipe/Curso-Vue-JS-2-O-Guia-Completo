@@ -38,7 +38,10 @@ export default {
         return {
             frutas: ['BaNaNa']//sobrescreve o valor presente no mixin
         }
-    },
+    },	
+    created(){
+		console.log('App.vue criado')
+	}
 }
 </script>
 

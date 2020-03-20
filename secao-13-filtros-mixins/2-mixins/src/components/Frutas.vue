@@ -18,7 +18,11 @@
 import frutasMixin from '@/frutasMixin.js'
 
 export default {
-    mixins: [frutasMixin] //todos os atributos foram substituidos pelo mixin que contém o código.
+    mixins: [frutasMixin], //todos os atributos foram substituidos pelo mixin que contém o código.	
+    created(){
+		console.log('Frutas.vue criado')
+	}
+
 }
 </script>
 
