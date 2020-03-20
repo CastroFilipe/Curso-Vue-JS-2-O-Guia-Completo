@@ -8,12 +8,18 @@
 		<p>{{cpf | cpf | inverter}}</p>
 
 		<!-- v-bind:value suporta filtros -->
-		<input type="text" value="cpf | cpf">
+		<input type="text" :value="cpf | cpf">
+		<hr>
+		<Frutas></Frutas>
 	</div>
 </template>
 
 <script>
+import Frutas from '@/components/Frutas.vue'
+
 export default {
+	components: {Frutas},
+
 	//criando filtro local para formatar cpf
 	filters: {
 		cpf(valor){
