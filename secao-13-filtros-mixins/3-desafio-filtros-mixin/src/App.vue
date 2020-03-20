@@ -13,14 +13,21 @@
 
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
+		<!-- <p>{{ espacoPorVirgula }}</p>
+		<p>{{ fraseTamanhos }}</p> -->
 
 		<!-- Exercício 4 -->
 		<!-- Compartilhe a propriedade computada via mixin -->
+		<p>{{ espacoPorVirgula }}</p>
+		<p>{{ fraseTamanhos }}</p>
 	</div>
 </template>
 
 <script>
+import palavrasMixin from '@/palavrasMixin.js'
+
 export default {
+	mixins: [palavrasMixin],
 	filters: {
 		replaceSpaces(valor){
 			return valor.replace(/\s/g, ',')
@@ -32,6 +39,15 @@ export default {
 			frase2: 'Pedro é legal'
 		}
 	},
+	// substituido pelo mixin
+	// computed: {
+	// 	espacoPorVirgula() {
+	// 		return this.frase1.replace(/\s/g, ',')//fará a mesma coisa que o filtro replaceSpaces
+	// 	},
+	// 	fraseTamanhos(){
+	// 		return this.frase2.split(' ').map((palavra)=>{ return `${palavra}(${palavra.length}) `}).join('')
+	// 	}
+	// },
 }
 </script>
 
