@@ -3,6 +3,9 @@
 		<h1>Filtros & Mixins</h1>
 		<!-- valor | filtro -->
 		<p>{{cpf | cpf}}</p>
+
+		<!-- Aplicando mais de um filtro -->
+		<p>{{cpf | cpf | inverter}}</p>
 	</div>
 </template>
 
