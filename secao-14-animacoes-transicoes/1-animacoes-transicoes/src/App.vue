@@ -8,7 +8,7 @@
 			<b-alert variant="success" show class="mb-1" v-if="exibirFrase">Alerta 2 com transição: {{frase}}</b-alert>
 		</transition>
 
-		<transition name="slide">
+		<transition name="slide" appear><!--appear chama a transação no momento de criação do componente-->
 			<b-alert variant="success" show v-if="exibirFrase">Alerta 3 com slide: {{frase}}</b-alert>
 		</transition>
 	</div>
@@ -20,13 +20,8 @@ export default {
 	data(){
 		return {
 			frase: 'uma frase para o usuário',
-			exibirFrase: false
+			exibirFrase: true
 		}
-	},
-	created() {
-		setTimeout(()=>{
-			this.exibirFrase = true
-		},1000)
 	},
 }
 </script>
