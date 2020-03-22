@@ -4,10 +4,10 @@
 		<hr>
 		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Mostrar frase</b-button>
 		
-		<b-alert variant="info" show v-if="exibirFrase">Alerta sem transição: {{frase}}</b-alert>
+		<b-alert variant="info" show v-if="exibirFrase">Alerta 1 sem transição: {{frase}}</b-alert>
 
 		<transition name="meuEstilo"><!--tag utilizada para transições-->
-			<b-alert variant="success" show v-if="exibirFrase">Alerta com transição: {{frase}}</b-alert>
+			<b-alert variant="success" show v-if="exibirFrase">Alerta 2 com transição: {{frase}}</b-alert>
 		</transition>
 	</div>
 </template>
@@ -35,27 +35,11 @@ export default {
 	font-size: 1.5rem;
 }
 /* padrão de nomeclatura para estilos aplicados em transições */
-.meuEstilo-enter {
+.meuEstilo-enter, .meuEstilo-leave-to{
 	opacity: 0;
 }
 
-.meuEstilo-enter-active {
+.meuEstilo-enter-active, .meuEstilo-leave-active {
 	transition: opacity 2s;
-}
-
-.meuEstilo-enter-to {
-	opacity: 1;
-}
-
-.meuEstilo-leave {
-	opacity: 1;
-}
-
-.meuEstilo-leave-active {
-	transition: opacity 2s;
-}
-
-.meuEstilo-leave-to {
-	opacity: 0;
 }
 </style>
