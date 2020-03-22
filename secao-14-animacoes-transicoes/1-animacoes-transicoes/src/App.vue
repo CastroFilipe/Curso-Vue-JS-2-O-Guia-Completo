@@ -5,7 +5,7 @@
 		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Mostrar frase</b-button>
 
 		<transition name="meuEstilo"><!--tag utilizada para transições-->
-			<b-alert variant="success" show v-if="exibirFrase">Alerta 2 com transição: {{frase}}</b-alert>
+			<b-alert variant="success" show class="mb-1" v-if="exibirFrase">Alerta 2 com transição: {{frase}}</b-alert>
 		</transition>
 
 		<transition name="slide">
@@ -22,7 +22,12 @@ export default {
 			frase: 'uma frase para o usuário',
 			exibirFrase: false
 		}
-	}
+	},
+	created() {
+		setTimeout(()=>{
+			this.exibirFrase = true
+		},1000)
+	},
 }
 </script>
 
@@ -61,12 +66,12 @@ Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para ba
 
 /*classes css que utilizam os frames criados*/ 
 .slide-enter-active {
-	animation: slide-in 1s ease;
+	animation: slide-in 2s ease;
 	transition: opacity 2s;
 }
 
 .slide-leave-active {
-	animation: slide-out 1s ease;
+	animation: slide-out 2s ease;
 	transition: opacity 2s;
 }
 
