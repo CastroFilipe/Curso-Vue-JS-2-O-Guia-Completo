@@ -5,7 +5,9 @@
 		
 		<b-button @click="exibir2 = !exibir2">Mostrar</b-button>
 		<!-- Eventos de transição -->
+		<!-- :css="false" garante a excluzão de qualquer css da animação/transição -->
 		<transition
+			:css="false"
 			@before-enter="beforeEnter"
 			@enter="enter"
 			@after-enter="afterEnter"
@@ -25,45 +27,51 @@
 export default {
 	data(){
 		return {
-			frase: 'uma frase para o usuário',
-			exibirFrase: true,
 			exibir2: true,
 			tipoAnimacao: 'slide',
+			larguraBase: 0
 		}
 	},
 	methods: {
 			beforeEnter(el){
-				console.log("1-Before enter")
+				this.larguraBase = 0
+				el.style.width = `${this.larguraBase}px`
 			},
 
 			enter(el, done){//done() será chamado indicando opara o vue que a animação foi concluída
-				console.log("2-enter")
-				done()
-			},
+				let rodada = 1
+				const temporizador = setInterval(() => {
+					//adiciona rodada*10 a largura do componente a cada 20 ms
+					const novaLargura = this.larguraBase + rodada * 10 
+					el.style.width = `${novaLargura}px`//adiciona a largura calculada ao componente
+					rodada++
+					//após a 30° rodada, limpa o temporizador e chama a função done() indicando fim da animação
+					if(rodada > 30){
+						clearInterval(temporizador)
+						done()
+					}
+				}, 20);
 
-			afterEnter(el){
-				console.log("3-after enter")
-			},
-
-			enterCancelled(){
-				console.log("enter cancelled")
 			},
 
 			beforeLeave(el){
-				console.log("1-Before leave")
+				this.larguraBase = 300
+				el.style.width = `${this.larguraBase}px`
 			},
 
 			leave(el, done){
-				console.log("2-leave")
-				done()
-			},
-
-			afterLeave(el){
-				console.log("3-after leave")
-			},
-
-			leaveCancelled(){
-				console.log("leave cancelled")
+				let rodada = 1
+				const temporizador = setInterval(() => {
+					//adiciona rodada*10 a largura do componente a cada 20 ms
+					const novaLargura = this.larguraBase - rodada * 10 
+					el.style.width = `${novaLargura}px`//adiciona a largura calculada ao componente
+					rodada++
+					//após a 30° rodada, limpa o temporizador e chama a função done() indicando fim da animação
+					if(rodada > 30){
+						clearInterval(temporizador)
+						done()
+					}
+				}, 20);
 			},
 	}
 }
@@ -87,17 +95,18 @@ export default {
 	background-color: lightgreen;
 }
 
-.fade-enter, .fade-leave-to{
+/* .fade-enter, .fade-leave-to{
 	opacity: 0;
 }
 
 .fade-enter-active, .fade-leave-active {
 	transition: opacity 2s;
-}
+} */
 
 /*Os keyframes definem a animação. 
 Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para baixo(slide-in) */
-@keyframes slide-in {
+
+/* @keyframes slide-in {
 	from { transform: translateY(10px);}
 	to {transform: translateY(0);}
 }
@@ -105,10 +114,10 @@ Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para ba
 @keyframes slide-out {
 	from { transform: translateY(0px);}
 	to {transform: translateY(5px);}
-}
+} */
 
 /*classes css que utilizam os frames criados*/ 
-.slide-enter-active {
+/* .slide-enter-active {
 	animation: slide-in 0.5s ease;
 	transition: opacity 0.5s;
 }
@@ -120,5 +129,5 @@ Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para ba
 
 .slide-enter, .slide-leave-to{
 	opacity: 0;
-}
+} */
 </style>
