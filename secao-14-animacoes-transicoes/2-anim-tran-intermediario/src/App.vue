@@ -2,13 +2,13 @@
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
 		<hr>
-		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Mostrar frase</b-button>
+		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Animar</b-button>
 
-		<transition name="slide" appear><!--tag utilizada para transições-->
-			<b-alert variant="success" show class="mb-1" v-if="exibirFrase">Alerta 2 com transição: {{frase}}</b-alert>
-		</transition>
-
-		<transition name="slide" appear>
+		<b-select v-model="tipoAnimacao" class="mb-4">
+			<option value="fade">Aplicar fade</option>
+			<option value="slide">Aplicar slide</option>
+		</b-select>
+		<transition :name="tipoAnimacao">
 			<b-alert variant="success" show v-if="exibirFrase">Alerta 3 com slide: {{frase}}</b-alert>
 		</transition>
 	</div>
@@ -20,7 +20,8 @@ export default {
 	data(){
 		return {
 			frase: 'uma frase para o usuário',
-			exibirFrase: true
+			exibirFrase: true,
+			tipoAnimacao: 'slide'
 		}
 	},
 }
@@ -36,6 +37,15 @@ export default {
 	margin-top: 60px;
 	font-size: 1.5rem;
 }
+
+.fade-enter, .fade-leave-to{
+	opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 2s;
+}
+
 /*Os keyframes definem a animação. 
 Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para baixo(slide-in) */
 @keyframes slide-in {
