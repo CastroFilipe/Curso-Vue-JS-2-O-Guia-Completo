@@ -54,7 +54,7 @@ Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para ba
 	to {transform: translateY(0);}
 }
 
-@keyframes slide-ou {
+@keyframes slide-out {
 	from { transform: translateY(0px);}
 	to {transform: translateY(40px);}
 }
@@ -62,9 +62,15 @@ Nesse caso, uma transformação de baixo para cima(slide-out) ou de cima para ba
 /*classes css que utilizam os frames criados*/ 
 .slide-enter-active {
 	animation: slide-in 1s ease;
+	transition: opacity 2s;
 }
 
 .slide-leave-active {
-	animation: slide-ou 1s ease;
+	animation: slide-out 1s ease;
+	transition: opacity 2s;
+}
+
+.slide-enter, .slide-leave-to{
+	opacity: 0;
 }
 </style>
