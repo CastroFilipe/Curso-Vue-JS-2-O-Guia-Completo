@@ -2,14 +2,16 @@
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
 		<hr>
-		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Animar</b-button>
+		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Exibir Frase</b-button>
+		<b-button variant="warning" class="mb-4 ml-4" @click="exibirFrase = !exibirFrase">Inverter Alerta</b-button>
 
 		<b-select v-model="tipoAnimacao" class="mb-4">
 			<option value="fade">Aplicar fade</option>
 			<option value="slide">Aplicar slide</option>
 		</b-select>
-		<transition :name="tipoAnimacao">
-			<b-alert variant="success" show v-if="exibirFrase">Alerta 3 com slide: {{frase}}</b-alert>
+		<transition :name="tipoAnimacao" mode="out-in">
+			<b-alert variant="warning" show v-if="exibirFrase" key="warning">ALERTA 2: {{frase}}</b-alert>
+			<b-alert variant="success" show v-else key="success"> ALERTA 1: {{frase}}</b-alert>
 		</transition>
 	</div>
 </template>
@@ -21,7 +23,7 @@ export default {
 		return {
 			frase: 'uma frase para o usuário',
 			exibirFrase: true,
-			tipoAnimacao: 'slide'
+			tipoAnimacao: 'slide',
 		}
 	},
 }
