@@ -4,7 +4,17 @@
 		<hr>
 		
 		<b-button @click="exibir2 = !exibir2">Mostrar</b-button>
-		<transition>
+		<!-- Eventos de transição -->
+		<transition
+			@before-enter="beforeEnter"
+			@enter="enter"
+			@after-enter="afterEnter"
+			@enter-cancelled="enterCancelled"
+
+			@before-leave="beforeLeave"
+			@leave="leave"
+			@after-leave="afterLeave"
+			@leave-cancelled="leaveCancelled">
 			<div v-if="exibir2" class="caixa"></div>
 		</transition>
 	</div>
@@ -21,6 +31,41 @@ export default {
 			tipoAnimacao: 'slide',
 		}
 	},
+	methods: {
+			beforeEnter(el){
+				console.log("1-Before enter")
+			},
+
+			enter(el, done){//done() será chamado indicando opara o vue que a animação foi concluída
+				console.log("2-enter")
+				done()
+			},
+
+			afterEnter(el){
+				console.log("3-after enter")
+			},
+
+			enterCancelled(){
+				console.log("enter cancelled")
+			},
+
+			beforeLeave(el){
+				console.log("1-Before leave")
+			},
+
+			leave(el, done){
+				console.log("2-leave")
+				done()
+			},
+
+			afterLeave(el){
+				console.log("3-after leave")
+			},
+
+			leaveCancelled(){
+				console.log("leave cancelled")
+			},
+	}
 }
 </script>
 
