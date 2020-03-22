@@ -3,8 +3,10 @@
 		<h1>Animações</h1>
 		<hr>
 		<b-button variant="primary" class="mb-4" @click="exibirFrase = !exibirFrase">Mostrar frase</b-button>
-		<b-alert variant="info" show v-if="exibirFrase">{{frase}}</b-alert>
-
+		
+		<transition name="meuEstilo"><!--tag utilizada para transições-->
+			<b-alert variant="info" show v-if="exibirFrase">{{frase}}</b-alert>
+		</transition>
 	</div>
 </template>
 
@@ -29,5 +31,29 @@ export default {
 	color: #2c3e50;
 	margin-top: 60px;
 	font-size: 1.5rem;
+}
+/* padrão de nomeclatura para estilos aplicados em transições */
+.meuEstilo-enter {
+
+}
+
+.meuEstilo-enter-active {
+
+}
+
+.meuEstilo-enter-to {
+
+}
+
+.meuEstilo-leave {
+
+}
+
+.meuEstilo-leave-active {
+
+}
+
+.meuEstilo-leave-to {
+
 }
 </style>
