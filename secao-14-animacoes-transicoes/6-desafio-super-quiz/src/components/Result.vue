@@ -3,6 +3,11 @@
     <div class="result" :class="{wrong: !result}"> 
         <span v-if="result">Resposta certa! :)</span>
         <span v-else>Resposta errada! :(</span>
+        <hr>
+        <!-- Emitirá um evento quando o usuário clicar no botão para a próxima pergunta.
+        Assim o elemento pai recebe essa confirmação, podendo fazer a lógica para exibir a
+        nova pergunta -->
+        <button @click="$emit('confirmed')">Próxima pergunta</button>
     </div>
 </template>
 

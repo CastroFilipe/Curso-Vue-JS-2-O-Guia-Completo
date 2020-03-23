@@ -1,12 +1,58 @@
 <template>
 	<div id="app">
 		<h1>Super Quiz</h1>
+		<!--
+			o condicional v-if garante que o componente Question será exibido apenas
+			quando o questionMode = true. diferente do valor false que indica que
+			o componente Result é aquele que deverá ser exibido.
+
+			:question é o parametro declarado dentro do componente Question. Esse parametro
+			recebe um dos objetos dentro do array questions.A variável currentQuestion 
+			representa o indice do objeto dentro do array.
+
+			Por último irá capturar o evento 'selected' com um valor boleano indicando 
+			se a resposta está correta ou não
+		-->
+		<Question v-if="questionMode" :question="questions[currentQuestion]" 
+		@selected="showResult"></Question>
+		<!-- 
+			O componente Result será exibido quando o componente Question não for,
+			de acordo com a variável questionMode.
+			O componente recebe um atributo :result que informa se o usuário respondeu 
+			certo ou não.
+			
+			por último o componente emite o evento 'confirmed' indicando que deverá
+			ser exibida a próxima pergunta
+		-->
+		<Result v-else :result="result" @confirmed="nextQuestion"></Result>
 	</div>
 </template>
 
 <script>
-export default {
+import questions from '@/util/questions.js'
+import Question from '@/components/Question.vue'
+import Result from '@/components/Result.vue'
 
+export default {
+	components: {Question, Result},
+	data(){
+		return {
+			result: false,//irá armazenar se o usuário respondeu certo ou errado
+			questionMode: true,//váriavel usada para exibir na tela a questão ou o resultado
+			questions,//variável para guardar o array questions importado.
+			currentQuestion: 0//indice da questão atual que está sendo exibida em tela
+		}
+	},
+	methods: {
+		showResult(result){
+			this.result = result
+			this.questionMode = false
+		},
+		nextQuestion(){
+			this.currentQuestion = Math.floor(Math.random() * this.questions.length);
+			this.questionMode = true
+		}
+	},
 }
 </script>
 

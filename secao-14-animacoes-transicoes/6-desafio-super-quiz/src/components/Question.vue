@@ -1,12 +1,34 @@
 <template>
     <div class="question">
-        
+        <span>{{question.text}}</span>
+        <ul class="answers">
+            <li v-for="(answer, i) in question.answers" :key="answer.text" 
+                @click="selected(answer)">
+                <span class="number">{{ i+1 }}</span>
+                <span class="text">{{ answer.text }}</span>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-    
+    props: {
+        question : {
+            type: Object,
+            required: true
+        }
+    },
+    methods: {
+        /*Irá emitir o evento selected ao componente pai quando o usuário selecionar 
+        uma alternativa. o evento irá enviar o valor boolean correct presente na 
+        alternativa(answer). Assim poderão ser feitas verificações para saber se 
+        o usuário respondeu certo ou errado*/
+        selected(answer){
+            this.$emit('selected', answer.correct)
+            console.log(" está certo ?"+ answer.correct)
+        }
+    },
 }
 </script>
 
@@ -37,8 +59,12 @@ export default {
         background-color: #89c454;
         border-radius: 8px;
         width: 40%;
-
+        cursor: pointer;
         display: flex;
+    }
+
+    .answers li:hover {
+        background-color: #73ad3f;
     }
 
     .answers .number {
