@@ -1,0 +1,16 @@
+Instalar todas as dependências do projeto: npm i
+
+Utilizar o pacote json server. 
+Ele faz a simulação de uma "fake api" completa permitindo as operações dos métodos 
+Http GET, POST, DELETE, PUT etc..
+Os dados são salvos em um simples arquivo json localizado no diretório @/banco-de-dados
+
+Instalando o Json server de forma global (poderá ser usado em outros projetos): 
+npm install -g json-server
+
+Dentro do diretório @/banco-de-dados que contém o arquivo db.json utilizar o comando:
+json-server --watch db.json
+
+com isso a api estará pronta para uso na porta padrão http://localhost:3000
+Os recursos são disponibilizados de acordo com o json que está salvo em db.json
+
