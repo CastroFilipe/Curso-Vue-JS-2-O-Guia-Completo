@@ -15,7 +15,7 @@ Vue.use({
         criadas com diferentes valores para baseURL. Assim, diferentes 
         apis podem ser consumidas*/
         Vue.prototype.$http = axios.create({
-            baseURL : 'http://localhost:3000'
+            baseURL : 'http://localhost:3000/'
         })
     }
 })

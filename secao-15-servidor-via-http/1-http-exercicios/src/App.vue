@@ -22,7 +22,7 @@
             <!--  -->
             <b-form-group label="Categoria">
                 <div class="select-categorias" >
-                    <b-form-select v-model="selected" :options="categorias"></b-form-select>
+                    <b-form-select v-model="produto.categoriaId" :options="categorias"></b-form-select>
                 </div>
             </b-form-group>
             <hr>
@@ -46,20 +46,29 @@ export default {
                 nome: '',
                 descricao:'',
                 preco: 0,
-                categoriaId: 1,
+                categoriaId: 0,
             },
             categorias: [
                 {value : 1, text: 'Hambúrgueres'},
                 {value : 2, text: 'Refrigerantes'}
-            ],
-            selected: ''
+            ]
         }
     },
     methods: {
+        /**Fará a requisição do tipo post para salvar o objeto produto. 
+         * O endpoint é '/produtos' e será concatenado com a baseURL definida no arquivo
+         * axios.js. Após a requisição POST , retorna uma resposta 'resp'. 
+         * Após a resposta ser recebida, limpar os valores do objeto produto.
+        */
         salvar(){
-            console.log(this.produto)
+            this.$http.post('produtos', this.produto).then(resp => {
+                    this.produto.nome = ''
+                    this.produto.descricao = ''
+                    this.produto.preco = 0
+                    this.produto.categoriaId = 0
+                })
         }
-    },
+    }
 };
 </script>
 
