@@ -11,11 +11,8 @@
 			representa o indice do objeto dentro do array.
 
 			Por último irá capturar o evento 'selected' com um valor boleano indicando 
-			se a resposta está correta ou não
-		-->
-		<Question v-if="questionMode" :question="questions[currentQuestion]" 
-		@selected="showResult"></Question>
-		<!-- 
+			se a resposta está correta ou não.
+
 			O componente Result será exibido quando o componente Question não for,
 			de acordo com a variável questionMode.
 			O componente recebe um atributo :result que informa se o usuário respondeu 
@@ -24,7 +21,11 @@
 			por último o componente emite o evento 'confirmed' indicando que deverá
 			ser exibida a próxima pergunta
 		-->
-		<Result v-else :result="result" @confirmed="nextQuestion"></Result>
+		<transition name="flip" mode="out-in">
+			<Question v-if="questionMode" :question="questions[currentQuestion]" 
+			@selected="showResult"></Question>
+			<Result v-else :result="result" @confirmed="nextQuestion"></Result>
+		</transition>
 	</div>
 </template>
 
