@@ -23,8 +23,22 @@ Vue.use({
         Vue.prototype.$http.interceptors.request.use(config => {
             console.log('Requisição do tipo: '+ config.method)
             console.log(config)
-            
+
             return config //necessário para permitir que a requisição continue até o destino.
-        })
+        
+        }, erro => Promise.reject(erro))//em caso de erro, será rejeitda a requisição.
+
+        /*Interceptando respostas */
+        Vue.prototype.$http.interceptors.response.use(res => {
+            console.log('resposta recebida com sucesso')
+            //print em cada elemento
+            res.data.forEach(element => {
+                console.log(element.nome)
+            });
+            
+            return res //necessário para permitir que a requisição continue até o destino.
+        
+        }, erro => Promise.reject(erro))//em caso de erro, será rejeitda a Resposta.
+
     }
 })
