@@ -3,32 +3,45 @@
         <h1>HTTP com Axios</h1>
         <b-card class="card-container">
             <b-form-group label="Nome">
-                <b-form-input type="text" size="lg" v-model="produto.nome" 
+                <b-form-input type="text" size="md" v-model="produto.nome" 
                 placeholder="Informe o nome de um Hambúrguer ou refrigerante">
                 </b-form-input>
             </b-form-group>
             <!--  -->
             <b-form-group label="Descrição">
-                <b-form-input type="text" size="lg" v-model="produto.descricao" 
+                <b-form-input type="text" size="md" v-model="produto.descricao" 
                 placeholder="Informe a descrição">
                 </b-form-input>
             </b-form-group>
             <!--  -->
             <b-form-group label="Preço">
-                <b-form-input type="number" size="lg" v-model="produto.preco" 
+                <b-form-input type="number" size="md" v-model="produto.preco" 
                 placeholder="Informe o valor">
                 </b-form-input>
             </b-form-group>
             <!--  -->
             <b-form-group label="Categoria">
                 <div class="select-categorias" >
-                    <b-form-select v-model="produto.categoriaId" :options="categorias"></b-form-select>
+                    <b-form-select size="md" v-model="produto.categoriaId" :options="categorias"></b-form-select>
                 </div>
             </b-form-group>
             <hr>
             <b-button @click.prevent="salvar" 
-            size="lg" variant="success">Salvar</b-button>
+            size="lg" variant="success">POST SALVAR</b-button>
+            
+            <b-button @click.prevent="buscarProdutos" size="lg" variant="info" class="ml-2">GET PRODUTOS</b-button>
+            <b-list-group>
+                <b-list-group-item v-for="produto in produtos" :key="produto.id">
+                    <strong>id: </strong>{{produto.id}}<br>
+                    <strong>Nome: </strong>{{produto.nome}}<br>
+                    <strong>Descrição: </strong>{{produto.descricao}}<br>
+                    <strong>Preço: </strong>{{produto.preco}}<br>
+                </b-list-group-item>
+            </b-list-group>
+            
         </b-card>
+
+
     </div>
 </template>
 
@@ -51,7 +64,8 @@ export default {
             categorias: [
                 {value : 1, text: 'Hambúrgueres'},
                 {value : 2, text: 'Refrigerantes'}
-            ]
+            ],
+            produtos: []//usado para guardar os dados de uma solicitação GET
         }
     },
     methods: {
@@ -67,6 +81,11 @@ export default {
                     this.produto.preco = 0
                     this.produto.categoriaId = 0
                 })
+        },
+        buscarProdutos(){
+            this.$http.get('produtos').then(resp => {
+                this.produtos = resp.data
+            })
         }
     }
 };

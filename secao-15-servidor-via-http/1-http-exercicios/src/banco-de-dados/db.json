@@ -90,6 +90,13 @@
       "descricao": "Refrigerante de uva",
       "preco": "7",
       "categoriaId": 2
+    },
+    {
+      "id": 14,
+      "nome": "X-CACHORRÃO",
+      "descricao": "picadinho com cebola",
+      "preco": "35",
+      "categoriaId": 1
     }
   ],
   "categorias": [
