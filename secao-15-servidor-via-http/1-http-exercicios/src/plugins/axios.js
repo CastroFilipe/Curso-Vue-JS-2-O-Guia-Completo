@@ -17,5 +17,14 @@ Vue.use({
         Vue.prototype.$http = axios.create({
             baseURL : 'http://localhost:3000/'
         })
+
+        /*Interceptors. Interceptando requisições. 
+        Qualquer requisição passará por esse trecho de cógido. */
+        Vue.prototype.$http.interceptors.request.use(config => {
+            console.log('Requisição do tipo: '+ config.method)
+            console.log(config)
+            
+            return config //necessário para permitir que a requisição continue até o destino.
+        })
     }
 })
