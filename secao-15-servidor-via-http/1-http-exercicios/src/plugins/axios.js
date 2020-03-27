@@ -30,14 +30,8 @@ Vue.use({
 
         /*Interceptando respostas */
         Vue.prototype.$http.interceptors.response.use(res => {
-            console.log('resposta recebida com sucesso')
-            //print em cada elemento
-            res.data.forEach(element => {
-                console.log(element.nome)
-            });
-            
+            console.log('resposta recebida com sucesso')     
             return res //necessário para permitir que a requisição continue até o destino.
-        
         }, erro => Promise.reject(erro))//em caso de erro, será rejeitda a Resposta.
 
     }

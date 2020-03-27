@@ -2,7 +2,7 @@
   "produtos": [
     {
       "id": 1,
-      "nome": "Hambúrguer",
+      "nome": "Hambúrguer Tradicional!",
       "descricao": "Pão, bife de hambúrguer 90g, salada e batata.",
       "preco": 8.5,
       "categoriaId": 1
@@ -97,6 +97,13 @@
       "descricao": "picadinho com cebola",
       "preco": "35",
       "categoriaId": 1
+    },
+    {
+      "id": 15,
+      "nome": "Tuchaua",
+      "descricao": "Refrigerante de Amazônia",
+      "preco": "5",
+      "categoriaId": 2
     }
   ],
   "categorias": [
