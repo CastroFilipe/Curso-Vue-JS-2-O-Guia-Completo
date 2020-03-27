@@ -29,7 +29,7 @@
             <b-button-group class="mb-4">
                 <b-button @click.prevent="salvar" size="lg" variant="success">POST SALVAR</b-button>
             
-                <b-button @click.prevent="buscarProdutos" size="lg" variant="info" class="ml-1">GET PRODUTOS</b-button>
+                <b-button @click.prevent="buscarProdutos" size="lg" variant="info" class="ml-2">GET PRODUTOS</b-button>
             </b-button-group>
 
             <b-list-group>
@@ -39,7 +39,7 @@
                     <strong>Descrição: </strong>{{produto.descricao}}<br>
                     <strong>Preço: </strong>{{produto.preco}}<br>
                     <b-button variant="warning" @click="carregarParaEditar(produto)">Editar</b-button>
-                    <b-button class="ml-2" variant="danger">Excluir</b-button>
+                    <b-button class="ml-2" variant="danger" @click="excluir(produto.id)">Excluir</b-button>
                 </b-list-group-item>
             </b-list-group>  
         </b-card>
@@ -105,6 +105,11 @@ export default {
             .then(resp =>{
                 this.limparProduto()
             }).then(() => {
+                this.buscarProdutos()
+            })
+        },
+        excluir(id){
+            this.$http.delete(`produtos/${id}`).then(resp => {
                 this.buscarProdutos()
             })
         },
