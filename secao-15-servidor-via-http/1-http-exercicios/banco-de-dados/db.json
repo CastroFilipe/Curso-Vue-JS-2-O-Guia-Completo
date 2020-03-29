@@ -3,36 +3,50 @@
     {
       "id": 1,
       "nome": "X-Tudo",
-      "descricao": "Pão, queijo, ovo, Salada, picadinho, salame, presunto...",
-      "preco": "30",
+      "descricao": "Pão Bola, queijo, presunto, calabresa, picadinho, salada, salsicha..",
+      "preco": "25",
       "categoriaId": 1
     },
     {
       "id": 2,
-      "nome": "X-Calabresa",
-      "descricao": "Pão, calabresa, queijo, presunto.",
+      "nome": "X-calabresa",
+      "descricao": "Pão , calabresa, queijo, salada",
       "preco": "15",
       "categoriaId": 1
     },
     {
       "id": 3,
-      "nome": "Americano",
-      "descricao": "3 Pães de forma, salsicha, queijo, presunto, ovo, salada.",
-      "preco": "12",
+      "nome": "Vegetariano",
+      "descricao": "Pão, hambúrguer de soja, salada..",
+      "preco": "10",
       "categoriaId": 1
     },
     {
       "id": 4,
-      "nome": "Fanta Uva",
-      "descricao": "Refrigerante de Uva",
+      "nome": "Americano",
+      "descricao": "3 pães de forma, salsicha, queijo, presunto, salada, batata palha",
+      "preco": "12",
+      "categoriaId": 1
+    },
+    {
+      "id": 5,
+      "nome": "Coca cola",
+      "descricao": "Refrigerante tradicional.",
       "preco": "6",
       "categoriaId": 2
     },
     {
-      "id": 5,
+      "id": 6,
       "nome": "Tuchaua",
-      "descricao": "Guaraná da Amazônia",
+      "descricao": "Refrigerante de Guaraná da amazônia",
       "preco": "5",
+      "categoriaId": 2
+    },
+    {
+      "id": 7,
+      "nome": "Fanta Uva",
+      "descricao": "Refrigerante de Uva tradicional",
+      "preco": "6",
       "categoriaId": 2
     }
   ],

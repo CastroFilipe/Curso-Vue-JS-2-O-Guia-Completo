@@ -1,7 +1,15 @@
 <template>
     <div id="app">
         <h1>HTTP com Axios</h1>
-        <b-card class="card-container">
+        <!-- exibirá mensagens de alerta em operações realizadas -->
+        <transition name="fade" mode="out-in">
+            <b-alert class="alert" show dismissible 
+            v-for="alrt in alertas" :key="alrt.texto" :variant="alrt.variant">
+                {{alrt.texto}}
+            </b-alert>
+        </transition>
+
+        <b-card>
             <b-form-group label="Nome">
                 <b-form-input type="text" size="md" v-model="produto.nome" 
                 placeholder="Informe o nome de um Hambúrguer ou refrigerante">
@@ -64,7 +72,12 @@ export default {
                 {value : 1, text: 'Hambúrgueres'},
                 {value : 2, text: 'Refrigerantes'}
             ],
-            produtos: []//usado para guardar os dados de uma solicitação GET
+            produtos: [],//usado para guardar os dados de uma solicitação GET
+            mensagens: [//modelos de mensagens para exibição
+                {id : 1, texto : 'Operação Realizada com sucesso', variant: 'success'},
+                {id : 2, texto : 'Erro! Operação cancelada', variant: 'danger'}
+            ],
+            alertas : []//Mensagens ativas para serem exibidas
         }
     },
     methods: {
@@ -94,9 +107,10 @@ export default {
         salvarPOST(){
             this.$http.post('produtos', this.produto)
             .then(resp => {
-                this.limparProduto()
+                this.limparProduto()   
             }).then(() => {
                 this.buscarProdutos()
+                this.adiconarAlert(1)
             })
         },
         //semelhante ao anterior
@@ -106,11 +120,18 @@ export default {
                 this.limparProduto()
             }).then(() => {
                 this.buscarProdutos()
+                this.adiconarAlert(1)
             })
         },
         excluir(id){
             this.$http.delete(`produtos/${id}`).then(resp => {
+                this.limparProduto()
+            }).then(()=> {
                 this.buscarProdutos()
+                this.adiconarAlert(1)
+            }, erro => {//em caso de erro exibe msg de operação cancelada
+                this.limparProduto()
+                this.adiconarAlert(2)
             })
         },
         //Método que caregará o produto no formulario, possibilitando assim sua edição
@@ -126,6 +147,12 @@ export default {
             this.produto.descricao = ''
             this.produto.preco = 0
             this.produto.categoriaId = 0
+            this.alertas = []
+        },
+        adiconarAlert(idMensagem){//pega a mensagem correspondente ao id, no array de mensagens modelos
+            let msg = this.mensagens.find(element => element.id == idMensagem)
+            console.log(msg.texto)
+            this.alertas.push(JSON.parse(JSON.stringify(msg)));
         }
     }
 };
@@ -138,6 +165,8 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     font-size: 1.5rem;
+    width: 70%;
+    margin: 0px auto;
 }
 
 #app h1 {
@@ -145,12 +174,20 @@ export default {
 	margin: 20px;
 }
 
-.card-container {
-    width: 70%;
-    margin: 0px auto;
-}
-
 .select-categorias {
     width: 30%;
+}
+
+.alert {
+    font-size: 1rem;    
+}
+
+/* CSS PARA O EFEITO FADE */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
 }
 </style>
