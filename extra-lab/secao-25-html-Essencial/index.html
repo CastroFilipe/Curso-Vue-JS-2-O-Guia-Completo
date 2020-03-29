@@ -33,8 +33,21 @@ Rodar o comando na pasta raiz do projeto para iniciar o servidor: "http-server .
                 fetch(link.href)//faz a chamada ajax
                 .then(resp => resp.text())
                 .then(html => elemento.innerHTML = html)//adiciona o conteúdo html a section
+                .then(() => rodarScript())
             }
         })
+
+        const rodarScript = () => {
+            document.querySelectorAll('[folder]').forEach(folder => {
+                folder.style.cursor = "pointer"
+
+                folder.onclick = function (e) {
+                    const ul = folder.nextElementSibling //pega o proximo elemento após o folder clickado
+                    const disp = ul.style.display
+                    ul.style.display = disp === 'none' ? 'block' : 'none'
+                }
+            })
+        }
     </script>
 </body>
 </html>
