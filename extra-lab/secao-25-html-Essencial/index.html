@@ -1,0 +1,35 @@
+<!-- Instalar o HTTP SERVER de forma global para disponibilizar a página idenx.html via servidor no
+endereço http://localhost:8080
+Rodar o comando na pasta raiz do projeto para iniciar o servidor: "http-server ."-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Essencial</title>
+</head>
+<body>
+    <header>HTML ESSENCIAL</header>
+    <nav>
+        <a href="pagina1.html">Ir para página 1</a> |
+        <a href="pagina2.html">página 2</a> |
+    </nav>
+    <section id="conteudo-container"></section>
+    <footer>
+        Html essencial
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link =>{//buscará todos os links 'a' da página.
+            const elemento = document.getElementById('conteudo-container')
+            
+            link.onclick = e => { //em cada link adiciona a função que será chamada quando o evento de click ocorrer.
+                e.preventDefault()//impede o comportamento padrão de navegar para o link
+
+                fetch(link.href)//faz a chamada ajax
+                .then(resp => resp.text())
+                .then(html => elemento.innerHTML = html)//adiciona o conteúdo html a section
+            }
+        })
+    </script>
+</body>
+</html>
