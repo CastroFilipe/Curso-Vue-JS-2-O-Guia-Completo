@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flex box</title>
+    <link rel="stylesheet" href="basic-style2.css">
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            width: 700px;
+            height: 300px;
+        }
+
+        /* especificando o tamanho dos flex itens através da propriedade flex-basis */
+        .flex-container div:nth-of-type(3) {
+            flex-basis: 200px;
+            background-color: indianred;
+            order: 1;/*ordem do elemento na exibição*/
+            align-self: stretch; /*padrão. Fará o flex item se esticar para ocupar todo o espaço do container*/
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            
+        }
+
+        .flex-container div {
+            flex-basis: 100px;
+            /*Utilizado para ocupar o espaço restante do container. 
+            O espaço é divídio por cada div de acordo com o flex-grow*/
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

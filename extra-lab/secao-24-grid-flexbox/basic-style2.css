@@ -1,0 +1,10 @@
+.flex-container {
+    border: 5px solid green;
+    
+}
+
+.flex-container div {
+    box-sizing: border-box;
+    border: 5px solid red;
+    font-size: 40px;
+}
