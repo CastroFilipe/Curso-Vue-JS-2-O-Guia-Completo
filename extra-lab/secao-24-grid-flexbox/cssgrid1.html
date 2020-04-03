@@ -19,8 +19,36 @@
             align-items: center;
             justify-content: center;
             font-size: 30px;
-            border: solid 5px dodgerblue;
+            border: solid 5px rgb(0, 39, 78);
             background: #fff;
+        }
+
+        body {
+            display: grid;
+
+            /* COLUNAS */
+            grid-template-columns: 50% 50%;/*indica que o grid possui duas colunas. Cada coluna ocupando 50% do body*/
+            grid-template-columns: repeat(3, 33.33%);/*3 coluna com 33.33% de largura cada uma*/
+            grid-template-columns: repeat(11, 100px) 100px;/*12 colunas com 100px cada*/
+            /*1° coluna com largura fixa de 200px, segunda coluna com largura de 20% do body, 
+            3° coluna 1 fragmento. Nesse caso o 1 fragmento representa o restante do tamanho do body*/
+            grid-template-columns: 200px 20% 1fr;
+            /*divide em 3 colunas. a primeira e a última com tamanho de duas partes,  a do meio com 4 partes*/
+            grid-template-columns: 2fr 4fr 2fr;
+
+            /* LINHAS */
+            grid-template-rows: 50% 25% 12.5% 12.5%;/*divide em 4 linhas cada uma com o valor especificado*/
+            grid-template-rows: 100px 1fr;
+            grid-template-rows: 100px auto;/*primeira linha com 100px e o restante do espaço é dividido igualmente entre as linhas restantes*/
+        }
+
+        .d8 {
+            background-color: burlywood;
+            grid-column-start: 2;
+            grid-column-end: 4;
+
+            grid-row-start: 3;
+            grid-row-end: 5;
         }
     </style>
 </head>
