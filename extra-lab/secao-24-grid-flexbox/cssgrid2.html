@@ -17,8 +17,35 @@
             align-items: center;
             justify-content: center;
             font-size: 30px;
-            border: solid 5px dodgerblue;
+            border: solid 5px rgb(2, 28, 54);
             background: #fff;
+        }
+
+        body {
+            display: grid;
+            /* 3x3 */
+            /* grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr); */
+
+            /*linhas e colunas nomeadas*/
+            grid-template-columns: 
+            [inicio] 1fr 
+            [meio-1] 1fr 
+            [meio-2] 1fr 
+            [fim];
+            grid-template-rows: repeat(3, 1fr);
+
+            /* define o espaçamento entre as colunas e as linhas */
+            column-gap: 20px;
+            row-gap: 30px;
+        }
+
+        .d1 {
+            grid-column-start: meio-2;
+            grid-column-end: fim;
+
+            /*shortcut - aplicando as duas propiedades anteriores*/
+            grid-column: meio-1 / fim;
         }
     </style>
 </head>
