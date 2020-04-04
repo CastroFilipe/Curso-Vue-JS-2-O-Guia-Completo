@@ -10,6 +10,7 @@ Vue.use(Router)
     quando o usuário acessar o path '/usuario' o componente usuario será exibido na tela
 */
 export default new Router({
+    mode: 'history',
     routes: [
         { path: '/', component: inicio },
         { path: '/usuario', component: usuario }
