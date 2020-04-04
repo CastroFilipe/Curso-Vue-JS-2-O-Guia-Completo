@@ -7,12 +7,12 @@ Vue.use(Router)
 
 /*Configuração do vue-router
     quando o usuário acessar a raiz da aplicação 'localhost:8080/' o componente inicio será exibido na tela
-    quando o usuário acessar o path '/usuario' o componente usuario será exibido na tela
+    quando o usuário acessar o path '/usuario/{id}' o componente usuario será exibido na tela
 */
 export default new Router({
     mode: 'history',
     routes: [
         { path: '/', component: inicio },
-        { path: '/usuario', component: usuario }
+        { path: '/usuario/:id', component: usuario }
     ]
 })
