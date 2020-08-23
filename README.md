@@ -19,10 +19,10 @@ Repositório contendo o código desenvolvido no acompanhamento das aulas do curs
 - <a href="https://code.visualstudio.com/" target="_blank"><img src="https://img.shields.io/badge/CODE-TOOLS-5151d8?style=flat-square&logo=visual%20studio%20code" alt="vs code"></a>  
 
 ### Informações sobre o curso:
-**Duração Total**: 43 horas de vídeo  
-**Carga Horária**: -  
-**Principais tópicos abordados**: Vue JS, Vue Router, Vue Cli, Vuex , HTML, CSS, Bootstrap Vue.  
-**Progresso**: :x: 55%. Interrompido e descontinuado.  
-**Link para o curso**: [Clique aqui](https://www.udemy.com/course/vue-js-completo/)
+- **Duração Total**: 43 horas de vídeo  
+- **Carga Horária**: -  
+- **Principais tópicos abordados**: Vue JS, Vue Router, Vue Cli, Vuex , HTML, CSS, Bootstrap Vue.  
+- **Progresso**: :x: 55%. Interrompido e descontinuado.  
+- **Link para o curso**: [Clique aqui](https://www.udemy.com/course/vue-js-completo/)  
 
 
