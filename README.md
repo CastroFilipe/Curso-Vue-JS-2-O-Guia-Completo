@@ -1,4 +1,5 @@
 # Curso Vue js - O guia completo
+![Status descontinuado](https://img.shields.io/badge/STATUS-DESCONTINUADO-af2222?style=flat) 
 ![Progresso](https://img.shields.io/badge/Progresso-55%25-red) 
 <a href="https://unlicense.org/" target="_blank"><img alt="GitHub license" src="https://img.shields.io/github/license/CastroFilipe/curso-vue-js-2-o-guia-completo"></a>  
 
@@ -22,7 +23,8 @@ Repositório contendo o código desenvolvido no acompanhamento das aulas do curs
 - **Duração Total**: 43 horas de vídeo  
 - **Carga Horária**: -  
 - **Principais tópicos abordados**: Vue JS, Vue Router, Vue Cli, Vuex , HTML, CSS, Bootstrap Vue.  
-- **Progresso**: :x: 55%. Interrompido e descontinuado.  
+- **Progresso**: 55%.
+- **Status**: :x: Descontinuado
 - **Link para o curso**: [Clique aqui](https://www.udemy.com/course/vue-js-completo/)  
 
 
